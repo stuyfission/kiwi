@@ -9,17 +9,14 @@
 task main()
 {
 	motor[motor1] = 100;
-<<<<<<< HEAD
-	motor]motor2] = 100;
-	wait1Msec(1000);
-	motor[motor1] = 100;
-	motor[motor2] = 100;
-	wait1msec(1000);
-=======
 	motor[motor2] = 100;
 	wait1Msec(1000);
 	motor[motor1] = 100;
 	motor[motor2] = 100;
 	wait1Msec(1000);
->>>>>>> bf876c258b37213d72a60d008eb3f8f1da410ea1
+	motor[motor2] = 100;
+	wait1Msec(1000);
+	motor[motor1] = 100;
+	motor[motor2] = 100;
+	wait1Msec(1000);
 }
