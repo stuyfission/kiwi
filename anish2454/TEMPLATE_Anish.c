@@ -9,9 +9,9 @@
 task main()
 {
 	motor[motor1] = 100;
-	motor]motor2] = 100;
+	motor[motor2] = 100;
 	wait1Msec(1000);
 	motor[motor1] = 100;
 	motor[motor2] = 100;
-	wait1msec(1000);
+	wait1Msec(1000);
 }
