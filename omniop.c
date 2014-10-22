@@ -18,21 +18,30 @@ task main {
  		int radius = 25;
  		x2 /= 1.7;
  		y2 /= 1.7;
-   	if (abs(x1) < radius){
+   	if (abs(x1) < radius) {
 			x1 = 0;
 		}
-		if (abs(y1) < radius){
+		if (abs(y1) < radius) {
     	y1 = 0;
 		}
-		if (abs(x2) < radius){
+		if (abs(x2) < radius) {
 			x2 = 0;
 		}
-		if (abs(y2) < radius){
+		if (abs(y2) < radius) {
 			y2 = 0;
 		}
 		motor[Q1] = (  y2 - x2  ) - x1;
 		motor[Q2] = ( -y2 - x2  ) - x1;
 		motor[Q3] = ( -y2 + x2  ) - x1;
 		motor[Q4] = (  y2 + x2  ) - x1;
+
+
+		if (joy1Btn(3)) {
+			PlayTone(800, 10);
+		}
+
+		if (joy1Btn(1)) {
+			PlayTone(1200, 10);
+		}
 	}
 }
