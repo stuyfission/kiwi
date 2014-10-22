@@ -16,6 +16,6 @@ motor[motor4] = 100;
 wait1Msec(2000);
 motor[motor1] = 100;
 motor[motor2] = 0;
-wait1Msec{2000);
+wait1Msec(2000);
 
 }
