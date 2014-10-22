@@ -9,9 +9,20 @@
 task main()
 {
 	motor[motor1] = 100;
+<<<<<<< HEAD:Jeffrey/TEMPLATEJeff.c
 	motor[motor2] = 100;
 	motor[motor3] = 100;
 	motor[motor4] = 100;
 	wait1Msec(1000);
 	
+=======
+    motor[motor2] = 100;
+    waitMsec(2000)
+    motor[motor1] = -75
+    motor[motor2] = -75
+    waitMsec(2000)
+    motor[motor1] = 50
+    motor[motor2] = 50
+    waitMsec(2000)
+>>>>>>> bf876c258b37213d72a60d008eb3f8f1da410ea1:TEMPLATE.c
 }
