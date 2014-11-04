@@ -1,18 +1,25 @@
 /*(kind-of) random composite number generator
-	by Ryan Siu */
+	by Ryan Siu 11/4/14 */
 
-int x = rand() % 100; //generates random number from 0-100
-int y = rand() % 100;
-int answer;
+#include <stdbool.h>
+#include <stdlib.h>
 
-bool check = true;
+int main() {
+	
+	int x = rand() % 100; //generates random number from 0-100
+	int y = rand() % 100;
+	int answer;
 
-if (check == 1) {
-	answer = x*y;
-}
+	bool check = true;
 
-//below part is unnecessary but oh well
+	if (check == 1) {
+		answer = x*y;
+	}
 
-else {
-	answer = x/y;
+	//below part is unnecessary but oh well
+
+	else {
+		answer = x/y;
+	}
+	
 }
