@@ -1,12 +1,3 @@
-//
-//  zsteven.c
-//  
-//
-//  Created by Steven Zhang on 11/5/14.
-//
-//
-
-#include "zsteven.h"
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Motor,  mtr_S1_C1_1,     Q1,            tmotorTetrix, openLoop)
@@ -17,23 +8,47 @@
 
 #include "JoystickDriver.c"
 
-task main {
+task main () {
+	int x1, y1, x2, y2;
+	while (true){
+		// Update the values of the variables storing the joystick positions.
+		getJoystickSettings(joystick);
+	 	x1 = joystick.joy1_x1;
+		y1 = joystick.joy1_y1;
+		x2 = joystick.joy1_x2;
+	 	y2 = joystick.joy1_y2;
 
-if (y1 > 50) {
-    motor [Q1] = 100;
-    motor [Q2] = 100;
-}
-  
-    }
-    else (y1 == 0) {
-        motor [Q1] = 0;
-        motor [Q2] = 0;
+		if (y1 > 50) {
+		  motor[Q1] = 100;
+		  motor[Q2] = 100;
+		} else if (y1 == 0) {
+      motor[Q1] = 0;
+      motor[Q2] = 0;
     }
     if (y1 < -50 ) {
-        motor [Q1] = -100;
-        motor [Q2] = -100;
+      motor[Q1] = -100;
+      motor[Q2] = -100;
     }
-else (y1 < -50) {
-    motor [Q1] = 0;
-    motor [Q2] = 0;
+		else if (y1 < -50) {
+	    motor[Q1] = 0;
+	    motor[Q2] = 0;
+		}
+		if (y2 > 50) {
+		  motor[Q3] = 100;
+		  motor[Q4] = 100;
+		}
+
+		else if (y2 == 0) {
+		    motor[Q3] = 0;
+		    motor[Q4] = 0;
+		}
+		if (y2 < -50 ) {
+		    motor[Q3] = -100;
+		    motor[Q4] = -100;
+		}
+		else if (y2 < -50) {
+		    motor[Q3] = 0;
+		    motor[Q4] = 0;
+		}
+	}
 }
