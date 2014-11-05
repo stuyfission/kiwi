@@ -23,7 +23,17 @@ if (y1 > 50) {
     motor [Q1] = 100;
     motor [Q2] = 100;
 }
+  
+    }
+    else (y1 == 0) {
+        motor [Q1] = 0;
+        motor [Q2] = 0;
+    }
     if (y1 < -50 ) {
         motor [Q1] = -100;
         motor [Q2] = -100;
     }
+else (y1 < -50) {
+    motor [Q1] = 0;
+    motor [Q2] = 0;
+}
