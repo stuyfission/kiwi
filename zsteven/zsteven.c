@@ -1,12 +1,4 @@
-//
-//  zsteven.c
-//  
-//
-//  Created by Steven Zhang on 11/5/14.
-//
-//
 
-#include "zsteven.h"
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Motor,  mtr_S1_C1_1,     Q1,            tmotorTetrix, openLoop)
@@ -19,13 +11,11 @@
 
 task main {
 
-if (y1 > 50) {
-    motor [Q1] = 100;
-    motor [Q2] = 100;
-}
-  
+    if (y1 > 50) {
+      motor [Q1] = 100;
+      motor [Q2] = 100;
     }
-    else (y1 == 0) {
+    else if (y1 == 0) {
         motor [Q1] = 0;
         motor [Q2] = 0;
     }
@@ -33,24 +23,19 @@ if (y1 > 50) {
         motor [Q1] = -100;
         motor [Q2] = -100;
     }
-else (y1 < -50) {
-    motor [Q1] = 0;
-    motor [Q2] = 0;
 }
-if (y2 > 50) {
-    motor [Q3] = 100;
-    motor [Q4] = 100;
-}
+    if (y2 > 50) {
+      motor [Q3] = 100;
+      motor [Q4] = 100;
+    }
 
+    }
+    else if (y2 == 0) {
+      motor [Q3] = 0;
+      motor [Q4] = 0;
+    }
+    if (y2 < -50 ) {
+      motor [Q3] = -100;
+      motor [Q4] = -100;
+    }
 }
-else (y2 == 0) {
-    motor [Q3] = 0;
-    motor [Q4] = 0;
-}
-if (y2 < -50 ) {
-    motor [Q3] = -100;
-    motor [Q4] = -100;
-}
-else (y2 < -50) {
-    motor [Q3] = 0;
-    motor [Q4] = 0;
