@@ -9,18 +9,28 @@
 #include "JoystickDriver.c"
 
 task main {
+<<<<<<< HEAD
+	int x1, y1, x2, y2;
+	while(true){
+=======
  	int radius = 25;
 	int x1, y1, x2, y2;
 	while (true){
 		// Update the values of the variables storing the joystick positions.
+>>>>>>> cbd5d0317d07b5d17c4a8eb3b156f14e2e344cf3
 		getJoystickSettings(joystick);
 	 	x1 = joystick.joy1_x1;
 		y1 = joystick.joy1_y1;
 		x2 = joystick.joy1_x2;
 	 	y2 = joystick.joy1_y2;
 
+<<<<<<< HEAD
+
+ 		int radius = 25;
+=======
 	 	// Scaling since motors go from -100 -> +100 and joysticks go from -128
 	 	// to +128.
+>>>>>>> cbd5d0317d07b5d17c4a8eb3b156f14e2e344cf3
  		x2 /= 1.7;
  		y2 /= 1.7;
 

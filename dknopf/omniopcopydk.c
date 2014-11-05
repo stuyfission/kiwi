@@ -25,12 +25,15 @@ task main {
  		}
  		if (y2 > radius) {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
  			motor[Q3] = 100;
  			motor[Q4] = 100;
  		}
  	}
 }
 =======
+>>>>>>> cbd5d0317d07b5d17c4a8eb3b156f14e2e344cf3
  			motor[Q3] = y2;
  			motor[Q4] = y2;
  			
@@ -39,5 +42,9 @@ task main {
  				motor[Q4] = 0;
  		}
  	}
+<<<<<<< HEAD
+		
+=======
 		
 >>>>>>> 7274cd28aaa0985063a3dc43f605e9af19d7688d
+>>>>>>> cbd5d0317d07b5d17c4a8eb3b156f14e2e344cf3
