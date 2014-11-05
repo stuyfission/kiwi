@@ -10,13 +10,8 @@ task main()
 {
 	motor[motor1] = 100;
 	motor[motor2] = 100;
-	wait1Msec(1000);
-	motor[motor1] = 100;
-	motor[motor2] = 100;
-	wait1Msec(1000);
-	motor[motor2] = 100;
-	wait1Msec(1000);
-	motor[motor1] = 100;
-	motor[motor2] = 100;
-	wait1Msec(1000);
+	wait10Msec(1000);
+	motor[motor3] = -100;
+	motor[motor4] = -100;
+	wait10Msec(1000);
 }
