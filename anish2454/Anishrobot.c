@@ -17,11 +17,18 @@ task main {
 	 	int y2 = joystick.joy1_y2;
 	 	if(y1 > 50){
 	 		motor[q1] = 100;
-	 		motor[q] = 100;
+	 		motor[q2] = 100;
+	 	}
+	 	else{
+	 		motor[q1] = 0;
+	 		motor[q2] = 0;
 	 	}
 	 	if(y1 < -50){
 	 		motor[q3] = 100;
 	 		motor[q4] = 100;
 	 	}
+	 	else{
+	 		motor[q3] = 0;
+	 		motor[q4] = 0;
 	}
 }

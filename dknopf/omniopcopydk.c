@@ -24,6 +24,13 @@ task main {
  			motor[Q2] = 0;
  		}
  		if (y2 > radius) {
+<<<<<<< HEAD
+ 			motor[Q3] = 100;
+ 			motor[Q4] = 100;
+ 		}
+ 	}
+}
+=======
  			motor[Q3] = y2;
  			motor[Q4] = y2;
  			
@@ -33,3 +40,4 @@ task main {
  		}
  	}
 		
+>>>>>>> 7274cd28aaa0985063a3dc43f605e9af19d7688d
