@@ -37,3 +37,20 @@ else (y1 < -50) {
     motor [Q1] = 0;
     motor [Q2] = 0;
 }
+if (y2 > 50) {
+    motor [Q3] = 100;
+    motor [Q4] = 100;
+}
+
+}
+else (y2 == 0) {
+    motor [Q3] = 0;
+    motor [Q4] = 0;
+}
+if (y2 < -50 ) {
+    motor [Q3] = -100;
+    motor [Q4] = -100;
+}
+else (y2 < -50) {
+    motor [Q3] = 0;
+    motor [Q4] = 0;
