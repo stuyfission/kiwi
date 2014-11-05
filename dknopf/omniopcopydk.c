@@ -17,10 +17,19 @@ task main {
 	 	int y2 = joystick.joy1_y2;
  		int radius = 25;
  		if (y1 > radius){
- 			motor[Q1] = 100;
- 			motor[Q2] = 100;
+ 			motor[Q1] = y1;
+ 			motor[Q2] = y1;
+ 			
+ 			motor[Q1] = 0;
+ 			motor[Q2] = 0;
  		}
  		if (y2 > radius) {
- 			motor[Q3] = 100;
- 			motor[Q4] = 100;
+ 			motor[Q3] = y2;
+ 			motor[Q4] = y2;
+ 			
+ 			else 
+ 				motor[Q3] = 0;
+ 				motor[Q4] = 0;
  		}
+ 	}
+		
