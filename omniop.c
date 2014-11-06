@@ -9,12 +9,15 @@
 #include "JoystickDriver.c"
 
 task main {
+	int x1, y1, x2, y2;
 	while(true){
 		getJoystickSettings(joystick);
-	 	int x1 = joystick.joy1_x1;
-		int y1 = joystick.joy1_y1;
-		int x2 = joystick.joy1_x2;
-	 	int y2 = joystick.joy1_y2;
+	 	x1 = joystick.joy1_x1;
+		y1 = joystick.joy1_y1;
+		x2 = joystick.joy1_x2;
+	 	y2 = joystick.joy1_y2;
+
+
  		int radius = 25;
  		x2 /= 1.7;
  		y2 /= 1.7;
