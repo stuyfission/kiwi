@@ -9,15 +9,23 @@
 #include "JoystickDriver.c"
 
 task main {
-	while(true){
+	int x1, y1, x2, y2;
+	while (true){
+		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
-	 	int x1 = joystick.joy1_x1;
-		int y1 = joystick.joy1_y1;
-		int x2 = joystick.joy1_x2;
-	 	int y2 = joystick.joy1_y2;
+	 	x1 = joystick.joy1_x1;
+		y1 = joystick.joy1_y1;
+		x2 = joystick.joy1_x2;
+	 	y2 = joystick.joy1_y2;
+
  		int radius = 25;
+	 	// Scaling since motors go from -100 -> +100 and joysticks go from -128
+	 	// to +128.
  		x2 /= 1.7;
  		y2 /= 1.7;
+
+ 		// The motors will not move if the joystick has not been pushed a
+ 		// a sufficient distance.
    	if (abs(x1) < radius) {
 			x1 = 0;
 		}
@@ -30,18 +38,17 @@ task main {
 		if (abs(y2) < radius) {
 			y2 = 0;
 		}
+
+		// Sets the power of the motor accordingly.
 		motor[Q1] = (  y2 - x2  ) - x1;
 		motor[Q2] = ( -y2 - x2  ) - x1;
 		motor[Q3] = ( -y2 + x2  ) - x1;
 		motor[Q4] = (  y2 + x2  ) - x1;
 
-
-		if (joy1Btn(3)) {
-			PlayTone(800, 10);
-		}
-
-		if (joy1Btn(1)) {
-			PlayTone(1200, 10);
-		}
+		// Outputs the joystick values to the screen.
+		nxtDisplayString(2, "X1: %i", x1);
+		nxtDisplayString(2, "X1: %i", x1);
+		nxtDisplayString(2, "X1: %i", x1);
+		nxtDisplayString(2, "X1: %i", x1);
 	}
 }
