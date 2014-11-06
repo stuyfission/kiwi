@@ -9,7 +9,7 @@
 #include "JoystickDriver.c"
 
 task main() {
-	while(true) {
+	while(true){
 		getJoystickSettings(joystick);
 	 	int x1 = joystick.joy1_x1;
 		int y1 = joystick.joy1_y1;
