@@ -11,33 +11,24 @@
 task main {
 	while(true){
 		getJoystickSettings(joystick);
-		int x1 = joystick.joy1_x1;
+	 	int x1 = joystick.joy1_x1;
 		int y1 = joystick.joy1_y1;
 		int x2 = joystick.joy1_x2;
 	 	int y2 = joystick.joy1_y2;
- 		int radius = 25;
- 		if (y1 > radius){
- 			motor[Q1] = y1;
- 			motor[Q2] = y1;
- 			
- 			motor[Q1] = 0;
- 			motor[Q2] = 0;
- 		}
- 		if (y2 > radius) {
-<<<<<<< HEAD
- 			motor[Q3] = 100;
- 			motor[Q4] = 100;
- 		}
- 	}
+	 	if(y1 > 50){
+	 		motor[q1] = 100;
+	 		motor[q2] = 100;
+	 	}
+	 	else{
+	 		motor[q1] = 0;
+	 		motor[q2] = 0;
+	 	}
+	 	if(y1 < -50){
+	 		motor[q3] = 100;
+	 		motor[q4] = 100;
+	 	}
+	 	else{
+	 		motor[q3] = 0;
+	 		motor[q4] = 0;
+	}
 }
-=======
- 			motor[Q3] = y2;
- 			motor[Q4] = y2;
- 			
- 			else 
- 				motor[Q3] = 0;
- 				motor[Q4] = 0;
- 		}
- 	}
-		
->>>>>>> 7274cd28aaa0985063a3dc43f605e9af19d7688d
