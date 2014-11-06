@@ -24,8 +24,8 @@ task main() {
 	 		motor[Q2] = 0;
 	 	}
 	 	if(y1 < -50){
-	 		motor[Q3] = -x2;
-	 		motor[Q4] = -x2;
+	 		motor[Q3] = x2;
+	 		motor[Q4] = x2;
 	 	}
 	 	else{
 	 		motor[Q3] = 0;
