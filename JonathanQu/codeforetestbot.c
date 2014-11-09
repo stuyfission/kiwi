@@ -8,6 +8,8 @@
 
 #include "JoystickDriver.c"
 
+//totally not a ripoff
+
 task main {
 	int x1, y1, x2, y2;
 	while (true){
@@ -19,8 +21,7 @@ task main {
 	 	y2 = joystick.joy1_y2;
 
  		
-	 	// Scaling since motors go from -100 -> +100 and joysticks go from -128
-	 	// to +128.
+	
  		
 
  		// The motors will not move if the joystick has not been pushed a
@@ -38,6 +39,7 @@ task main {
 			y2 = 0;
 		}
 		
+		//scaleing it dowwwwwwwwwwwwwwwwwwwnnnnnnnnnnn low
 	if (abs(x1) >28 && x1 <-28) {
 		x1= x1 + 28;
 		}
@@ -47,7 +49,7 @@ task main {
 	if (abs(y1) < 28 && y1 < -28) {
     	y1 = y1 +28;
 		}
-	if (abs(y1) < 28) y1 > 28 {
+	if (abs(y1) < 28) %% y1 > 28) {
     	y1 = y1 -28;
 		}
 		if (abs(x2) >28 && x2 <-28) {
@@ -59,17 +61,27 @@ task main {
 	if (abs(y2) < 28 && y2 < -28) {
     	y2 = y2 +28;
 		}
-	if (abs(y2) < 28) y2 > 28 {
+	if (abs(y2) < 28 && y2 > 28) {
     	y2 = y2 -28;
 		}
 
-		// Sets the power of the motor accordingly.
+		//what moves what on the robot
 		motor[Q1] = (  y2 - x2  ) - x1;
 		motor[Q2] = ( -y2 - x2  ) - x1;
 		motor[Q3] = ( -y2 + x2  ) - x1;
 		motor[Q4] = (  y2 + x2  ) - x1;
 
+		if (y1>92 && x2==0 && y2==0);
+		motor[Q1] = (  100 ) ;
+		motor[Q2] = ( -100 ) ;
+		motor[Q3] = ( 100 ) ;
+		motor[Q4] = (  -100  ) ;
 		
+		if (y1>-92 && x2==0 && y2==0);
+		motor[Q1] = (  -100 ) ;
+		motor[Q2] = ( 100 ) ;
+		motor[Q3] = ( -100 ) ;
+		motor[Q4] = (  100  ) ;
 	}
 }
 		
