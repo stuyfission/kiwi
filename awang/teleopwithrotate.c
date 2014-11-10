@@ -11,7 +11,7 @@
 //totally not a ripoff
 //Brian Kwong, Allan Wang, Jonathan Quang
 
-task main {
+task main() {
 	int x1, y1, x2, y2;
 	while (true){
 		// Update the values of the variables storing the joystick positions.
@@ -85,3 +85,4 @@ task main {
 	 motor[Q4] = (  100  ) ;
    }
 	}
+}
