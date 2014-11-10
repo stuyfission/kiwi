@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-int main() {
+task main() {
 	
 	int x = rand() % 100; //generates random number from 0-100
 	int y = rand() % 100;
