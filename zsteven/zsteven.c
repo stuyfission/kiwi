@@ -8,47 +8,32 @@
 
 #include "JoystickDriver.c"
 
-task main () {
-	int x1, y1, x2, y2;
-	while (true){
-		// Update the values of the variables storing the joystick positions.
-		getJoystickSettings(joystick);
-	 	x1 = joystick.joy1_x1;
-		y1 = joystick.joy1_y1;
-		x2 = joystick.joy1_x2;
-	 	y2 = joystick.joy1_y2;
-
-		if (y1 > 50) {
-		  motor[Q1] = 100;
-		  motor[Q2] = 100;
-		} else if (y1 == 0) {
-      motor[Q1] = 0;
-      motor[Q2] = 0;
+task main() {
+    int x1,y1,x2,y2;
+    while (true) {
+        getjoysticksettings(joystick);
+        x1 = joystick.joy1_x1;
+        y1 = joystick.joy1_y1;
+        x2 = joystick.joy1_x2;
+        y2 = joystick.joy1_y2;
     }
-    if (y1 < -50 ) {
-      motor[Q1] = -100;
-      motor[Q2] = -100;
-    }
-		else if (y1 < -50) {
-	    motor[Q1] = 0;
-	    motor[Q2] = 0;
-		}
-		if (y2 > 50) {
-		  motor[Q3] = 100;
-		  motor[Q4] = 100;
-		}
-
-		else if (y2 == 0) {
-		    motor[Q3] = 0;
-		    motor[Q4] = 0;
-		}
-		if (y2 < -50 ) {
-		    motor[Q3] = -100;
-		    motor[Q4] = -100;
-		}
-		else if (y2 < -50) {
-		    motor[Q3] = 0;
-		    motor[Q4] = 0;
-		}
-	}
-}
+    
+    {if (x1 > 50);
+        motor[Q1]=100;
+        motor[Q2]=-100;}
+    {if (x1 == 0);
+        motor[Q1]=0
+        motor[Q2]=0}
+    {if (x1 < -50)
+        motor[Q1]=-100
+        motor[Q2]=100}
+    {if (y1 > 50);
+        motor[Q3]=100
+        motor[Q4]=-100}
+    {if (y1 == 0)
+        motor[Q3]=0
+        motor[Q4]=0}
+    {if (y1 < -50)
+        motor[Q3]=-100
+        motor[Q4]=100}
+    

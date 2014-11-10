@@ -1,3 +1,12 @@
+#pragma config(Hubs,  S1, HTMotor,  HTMotor,  none,     none)
+#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
+#pragma config(Motor,  mtr_S1_C1_1,     Q1,            tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C1_2,     Q2,            tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_1,     Q3,            tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_2,     Q4,            tmotorTetrix, openLoop)
+
+
+
 #include "JoystickDriver.c"
 task main()
 {
@@ -21,4 +30,6 @@ task main()
 		motor[l1] = -100;
 		motor[l2] = -100;
 	}
+	else{
+		motor[l1] = 100;
 }
