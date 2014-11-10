@@ -20,11 +20,13 @@ task main() {
 	 		motor[Q2] = -100;
 	 		motor[Q3] = 100;
 	 		motor[Q4] = -100;
+	}
 	 	else if(y1 < -50 && x2 == 0){
 	 	  motor[Q1] = -100;
 	 		motor[Q2] = 100;
 	 		motor[Q3] = -100;
 	 		motor[Q4] = 100;
+	}
 	 	else if(x2 > 50){
 	 		motor[Q1] = 40;
 	 		motor[Q4] = 40;
