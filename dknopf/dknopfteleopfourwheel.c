@@ -9,39 +9,38 @@
 #include "JoystickDriver.c"
 
 task main {
-	while (true) {
+	while(true){
 		getJoystickSettings(joystick);
-		int y1 = joystick.joy1_y1;
-		int y2 = joystick.joy1_y2;
 		int x1 = joystick.joy1_x1;
-		int x2 = joystick.joy2_x2;
-		int pos = 50;
-		
-		if(y1 > pos){
-			motor[Q1] = 1
-			motor[Q2] = 1
-		}
-		else if(x1 > pos & y1 > pos){
-			motor[Q1] += pos
-			motor[Q2] += pos
-		}
-		else if(y1 == 0){
-			motor[Q1] == 0
-			motor[Q2] == 0
-		}	
-		if (y1 > pos){
-			motor[Q3] = 1
-			motor[Q4] = 1
-		}
-		else if(x1 > pos & y1 > pos){
-			motor[Q3] += pos
-			motor[Q4] += pos
-		}
-		else if(y1 == 0){
-			motor[Q3] == 0
-			motor[Q4] == 0
-		}
-		
-	}
-}
+		int y1 = joystick.joy1_y1;
+		int x2 = joystick.joy1_x2;
+	 	int y2 = joystick.joy1_y2;
+ 		int radius = 25;
+ 		if (y1 > radius){
+ 			motor[Q1] = y1;
+ 			motor[Q2] = y1 * -1;
+ 			motor[Q3] = y1 * -1;
+ 			motor[Q4] = y1;
+ 		}
+ 			else {
+ 			motor[Q1] = 0;
+ 			motor[Q2] = 0;
+ 			motor[Q3] = 0;
+ 			motor[Q4] = 0;
+ 		}
+
+ 		if (y2 > radius) {
+ 			motor[Q1] = y2 * -1;
+ 			motor[Q2] = y2;
+ 			motor[Q3] = y2;
+ 			motor[Q4] = y2 * -1;
+ 		}
+ 			else {
+ 				motor[Q1] = 0;
+ 				motor[Q2] = 0;
+ 				motor[Q3] = 0;
+ 				motor[Q4] = 0;
+ 		}
+
+ 	}
 
