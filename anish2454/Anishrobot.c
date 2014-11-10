@@ -15,13 +15,13 @@ task main() {
 		int y1 = joystick.joy1_y1;
 		int x2 = joystick.joy1_x2;
 	 	int y2 = joystick.joy1_y2;
-	 	if(y1 > 50 && x2 == 0){
+	 	if(y1 > 50){
 	 		motor[Q1] = 100;
 	 		motor[Q2] = -100;
 	 		motor[Q3] = 100;
 	 		motor[Q4] = -100;
 	}
-	 	else if(y1 < -50 && x2 == 0){
+	 	else if(y1 < -50){
 	 	  motor[Q1] = -100;
 	 		motor[Q2] = 100;
 	 		motor[Q3] = -100;
