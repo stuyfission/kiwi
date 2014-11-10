@@ -30,5 +30,6 @@ task main () {
 			motor [r1] = 0;
 			motor [r2] = 0;
 		}
+	}
 
 }
