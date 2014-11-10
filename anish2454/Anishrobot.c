@@ -8,7 +8,7 @@
 
 #include "JoystickDriver.c"
 
-task main {
+task main() {
 	while(true){
 		getJoystickSettings(joystick);
 	 	int x1 = joystick.joy1_x1;
@@ -16,19 +16,20 @@ task main {
 		int x2 = joystick.joy1_x2;
 	 	int y2 = joystick.joy1_y2;
 	 	if(y1 > 50){
-	 		motor[q1] = 100;
-	 		motor[q2] = 100;
+	 		motor[Q1] = y1;
+	 		motor[Q2] = y1;
 	 	}
 	 	else{
-	 		motor[q1] = 0;
-	 		motor[q2] = 0;
+	 		motor[Q1] = 0;
+	 		motor[Q2] = 0;
 	 	}
-	 	if(y1 < -50){
-	 		motor[q3] = 100;
-	 		motor[q4] = 100;
+	 	if(y2 < -50){
+	 		motor[Q3] = y2;
+	 		motor[Q4] = y2;
 	 	}
 	 	else{
-	 		motor[q3] = 0;
-	 		motor[q4] = 0;
+	 		motor[Q3] = 0;
+	 		motor[Q4] = 0;
+	 	}
 	}
 }
