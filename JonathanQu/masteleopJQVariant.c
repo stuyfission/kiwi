@@ -73,12 +73,12 @@ task main {
 	 //rotate
 	 if (y1>92 && x2==0 && y2==0) {
 	 motor[Q1] = (  100 ) ;
-   motor[Q2] = ( -100 ) ;
+	 motor[Q2] = ( -100 ) ;
 	 motor[Q3] = ( 100 ) ;
 	 motor[Q4] = (  -100  ) ;
    }
 
-	 if (y1>-92 && x2==0 && y2==0) {
+	 if (y1<-92 && x2==0 && y2==0) {
 	 motor[Q1] = (  -100 ) ;
 	 motor[Q2] = ( 100 ) ;
 	 motor[Q3] = ( -100 ) ;
