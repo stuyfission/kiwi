@@ -37,52 +37,52 @@ task main() {
 
 	 //scaling it down
 	 if (x1 < -28) {
-	 		x1 = x1 + 28;
-   }
-   if (x1 > 28) {
-      x1 = x1 - 28;
+	 	x1 = x1 + 28;
+   	}
+   	if (x1 > 28) {
+      		x1 = x1 - 28;
+   	}
+
+   	if (x2 < -28) {
+      		x2 = x2 + 28;
+   	}
+   	if (x2 > 28) {
+      		x2 = x2 - 28;
+   	}
+
+   	if (x1 < -28) {
+	 	x1 = x1 + 28;
+	 }
+   	if (x1 > 28) {
+      	x1 = x1 - 28;
+   	}
+
+   	if (x2 < -28) {
+      		x2 = x2 + 28;
+   	}
+   	if (x2 > 28) {
+      		x2 = x2 - 28;
+   	}
+
+   	//direct movement
+   	motor[Q1] = (  y2 - x2  ) - x1;
+	motor[Q2] = ( -y2 - x2  ) - x1;
+	motor[Q3] = ( -y2 + x2  ) - x1;
+	motor[Q4] = (  y2 + x2  ) - x1;
+
+	//rotate
+	if (y1>92 && x2==0 && y2==0) {
+	motor[Q1] = (  100 ) ;
+   	motor[Q2] = ( -100 ) ;
+	motor[Q3] = ( 100 ) ;
+	motor[Q4] = (  -100  ) ;
    }
 
-   if (x2 < -28) {
-      x2 = x2 + 28;
-   }
-   if (x2 > 28) {
-      x2 = x2 - 28;
-   }
-
-   if (x1 < -28) {
-	 		x1 = x1 + 28;
-   }
-   if (x1 > 28) {
-      x1 = x1 - 28;
-   }
-
-   if (x2 < -28) {
-      x2 = x2 + 28;
-   }
-   if (x2 > 28) {
-      x2 = x2 - 28;
-   }
-
-   //direct movement
-   motor[Q1] = (  y2 - x2  ) - x1;
-	 motor[Q2] = ( -y2 - x2  ) - x1;
-	 motor[Q3] = ( -y2 + x2  ) - x1;
-	 motor[Q4] = (  y2 + x2  ) - x1;
-
-	 //rotate
-	 if (y1>92 && x2==0 && y2==0) {
-	 motor[Q1] = (  100 ) ;
-   motor[Q2] = ( -100 ) ;
-	 motor[Q3] = ( 100 ) ;
-	 motor[Q4] = (  -100  ) ;
-   }
-
-	 if (y1>-92 && x2==0 && y2==0) {
-	 motor[Q1] = (  -100 ) ;
-	 motor[Q2] = ( 100 ) ;
-	 motor[Q3] = ( -100 ) ;
-	 motor[Q4] = (  100  ) ;
+	if (y1<-92 && x2==0 && y2==0) {
+	motor[Q1] = (  -100 ) ;
+	motor[Q2] = ( 100 ) ;
+	motor[Q3] = ( -100 ) ;
+	motor[Q4] = (  100  ) ;
    }
 	}
 }
