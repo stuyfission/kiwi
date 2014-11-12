@@ -14,40 +14,40 @@ task main() {
 		int y1 = joystick.joy1_y1;
 		int x1 = joystick.joy1_x1;
 
-		if ((x < 25 && x > -25) &&
-			(y < 25 && y > -25)) {}
+		if ((x1 < 25 && x1 > -25) &&
+			(y1 < 25 && y1 > -25)) {}
 
-		else if (y < 25 && y > -25) {
-			if (x > 25) {
+		else if (y1 < 25 && y1 > -25) {
+			if (x1 > 25) {
 				// go right
 			}
-			if (x < -25) {
+			if (x1 < -25) {
 				// go left
 			}
 		}
-		else if (x < 25 && x > -25) {
-			if (y > 25) {
+		else if (x1 < 25 && x1 > -25) {
+			if (y1 > 25) {
 				// go up
 			}
-			if (y < -25) {
+			if (y1 < -25) {
 				// go down
 			}
 		}
-		else if ((x > 25 || x < -25) &&
-			(y > 25 || y < -25)) {
-			if (x > 25) {
-				if (y > 25) {
+		else if ((x1 > 25 || x1 < -25) &&
+			(y1 > 25 || y1 < -25)) {
+			if (x1 > 25) {
+				if (y1 > 25) {
 					// go NE
 				}
-				if (y < -25) {
+				if (y1 < -25) {
 					// go SE
 				}
 			}
-			if (x < -25) {
-				if (y > 25) {
+			if (x1 < -25) {
+				if (y1 > 25) {
 					// go NW
 				}
-				if (y < -25) {
+				if (y1 < -25) {
 					// go SW
 				}
 			}
