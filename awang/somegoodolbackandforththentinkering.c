@@ -12,15 +12,18 @@
 //Still pretty sure that this needs to be fixed
 
 task main() {
-		motor[motor1] = 100;
-		motor[motor2] = 100;
-			wait1Msec(5000);
 			motor[motor1] = 100;
 			motor[motor2] = 100;
-			wait10Msec(1000);
+			wait1Msec(5000);
 			motor[motor1] = -100;
 			motor[motor2] = -100;
+			wait10Msec(1000);
+			motor[motor1] = 100;
+			motor[motor2] = 100;
 			wait1Msec(5000);
+			motor[motor1] = -100;
+			motor[motor2] = -100
+			wait10Msec(1000)
 			motor[motor1] = 0;
 			motor[motor2] = 0;
 	int x1, y1, x2, y2;
