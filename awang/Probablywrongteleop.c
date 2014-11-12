@@ -36,10 +36,10 @@ task main() {
 	}
 
 	//scaling here
-	if (x1 > -28) {
+	if (x1 < -28) {
 		x1 = x1 - 28;
 	}
-	if (x1 < 28) {
+	if (x1 > 28) {
 		x1 = x1 + 28;
 	}
 	if (y1 < 28) {
@@ -48,7 +48,7 @@ task main() {
 	if (y1 > -28) {
 		y1 = y1 - 28;
 	}
-	if (x2 > -28){
+	if (x2 < -28){
 		x2 = x2 - 28;
 	}
 	if (y2 > -28){
@@ -56,12 +56,17 @@ task main() {
 	}
 	if (y2 < -28){
 		y2 = y2 + 28;
-	if (y1 > -28) {
-		y1 = y1 - 28;
 	}
+	if
 	}
 
-	//Johnny please check this for me because it looks really wrong!!!
+	//alvin's direct movement copied and pasted heehee
+		motor[Q1] = (  y2 - x2  ) - x1;
+		motor[Q2] = ( -y2 - x2  ) - x1;
+		motor[Q3] = ( -y2 + x2  ) - x1;
+		motor[Q4] = (  y2 + x2  ) - x1;
+
+	//Johnny please check this for me!!!
 
 
 
