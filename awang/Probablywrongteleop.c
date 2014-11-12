@@ -45,6 +45,9 @@ task main() {
 	if (y1 < 28) {
 		y1 = y1 + 28;
 	}
+	if (y1 > -28) {
+		y1 = y1 - 28;
+	}
 	if (x2 > -28){
 		x2 = x2 - 28;
 	}
@@ -57,6 +60,8 @@ task main() {
 		y1 = y1 - 28;
 	}
 	}
+
+	//Johnny please check this for me because it looks really wrong!!!
 
 
 
