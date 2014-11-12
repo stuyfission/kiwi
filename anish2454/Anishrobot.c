@@ -15,31 +15,48 @@ task main() {
 		int y1 = joystick.joy1_y1;
 		int x2 = joystick.joy1_x2;
 	 	int y2 = joystick.joy1_y2;
-	 	if(y1 > 50){
-	 		motor[Q1] = 100;
+
+if(y1 > 50 && x1 < 50 && x1 > -50) {
+		 	motor[Q1] = 100;
 	 		motor[Q2] = -100;
-	 		motor[Q3] = 100;
-	 		motor[Q4] = -100;
-	}
-	 	else if(y1 < -50) {
-	 	  motor[Q1] = -100;
-	 		motor[Q2] = 100;
 	 		motor[Q3] = -100;
 	 		motor[Q4] = 100;
-	}
-	 	else if(x2 > 50) {
-	 		motor[Q1] = 40;
-	 		motor[Q4] = 40;
-	 		motor[Q3] = 40;
-	 		motor[Q2] = 40;
-	 	}
-	 	else if(x2 < -50) {
-	 		motor[Q1] = -40;
-	 		motor[Q4] = -40;
-	 		motor[Q3] = -40;
-	 		motor[Q2] = -40;
-	 	}
-	 	else{
+}
+else if( y1 < -50 && x1 < 50 && x1 > -50) {
+		 	motor[Q1] = -100;
+	 		motor[Q2] = 100;
+	 		motor[Q3] = 100;
+	 		motor[Q4] = -100;
+}
+else if(y1 > 50 && x1 > 50) {
+	motor[Q1] = 100;
+	motor[Q3] = -100;
+}
+else if(y1 < -50 && x1 > 50) {
+	motor[Q2] = 100;
+	motor[Q4] = -100;
+}
+else if(y1 < -50 && x1 < -50) {
+	motor[Q1] = -100;
+	motor[Q3] = 100;
+}
+else if(y1 > 50 && x1 < -50) {
+	motor[Q2] = -100;
+	motor[Q4] = 100;
+}
+else if(x2 > 50) {
+	motor[Q1] = 40;
+	motor[Q3] = 40;
+	motor[Q4] = 40;
+	motor[Q2] = 40;
+}
+else if(x2 < -50) {
+	motor[Q1] = -40;
+	motor[Q4] = -40;
+	motor[Q3] = -40;
+	motor[Q2] = -40;
+}
+else{
 	 		motor[Q1] = 0;
 	 		motor[Q2] = 0;
 	 		motor[Q3] = 0;
