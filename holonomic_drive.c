@@ -8,9 +8,9 @@
 
 #include "JoystickDriver.c"
 
-task main() {
+task main {
 	int x1, y1, x2, y2;
-	while (true) {
+	while (true){
 		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
 	 	x1 = joystick.joy1_x1;
