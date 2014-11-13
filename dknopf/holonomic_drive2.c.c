@@ -19,12 +19,15 @@ task main () {
 
 		if (y1 > radius || y1 < radius * -1){
 			motor[Q1] = y1;
-			motor[Q2] = y1 * -1;
-			motor[Q3] = y1 * -1;
+			motor[Q2] = -y1;
+			motor[Q3] = -y1;
 			motor[Q4] = y1;
 		}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 699444a9edc2bc5274adaf213727fd1070dc1371
 		else if (y2 > radius || y2 < radius * -1) {
 			motor[Q1] = y2;
 			motor[Q2] = 0;
