@@ -16,15 +16,15 @@
 task main () {
 	while(true){
 		//Update the values of the variables based on joystick positions.
-		getJoystickSettings(joystick);
-		int x1 = joystick.joy1_x1;
-		int y1 = joystick.joy1_y1;
-		int x2 = joystick.joy1_x2;
-		int y2 = joystick.joy1_y2;
-		int radius = 25;
-		//The motors will not move unless the joystick value is above 25 or below -25.
-		//This assures that the motors will not turn if the joystick is accidentaly moved a little bit.
-		if (y1 > radius || y1 < radius * -1){
+              getJoystickSettings(joystick);
+                int x1 = joystick.joy1_x1;
+                int y1 = joystick.joy1_y1;
+                int x2 = joystick.joy1_x2;
+                int y2 = joystick.joy1_y2;
+                int radius = 25;
+                //The motors will not move unless the joystick value is above 25 or below -25.
+                //This assures that the motors will not turn if the joystick is accidentaly moved a little bit.
+   if (y1 > radius || y1 < radius * -1){
       motor[Q1] = y1;
       motor[Q2] = -y1;
       motor[Q3] = -y1;
@@ -38,7 +38,7 @@ task main () {
       motor[Q4] = y2;
 		}
    //If neither of the joysticks are pushed, the motors will go to zero power.
-		else {
+    else {
       motor[Q1] = 0;
       motor[Q2] = 0;
       motor[Q3] = 0;
