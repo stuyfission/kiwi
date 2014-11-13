@@ -22,14 +22,7 @@ task main () {
 			motor[Q3] = y1 * -1;
 			motor[Q4] = y1;
 		}
-		else {
-			motor[Q1] = 0;
-			motor[Q2] = 0;
-			motor[Q3] = 0;
-			motor[Q4] = 0;
-		}
-
-		if (y2 > radius || y2 < radius * -1) {
+		else if (y2 > radius || y2 < radius * -1) {
 			motor[Q1] = y2;
 			motor[Q2] = 0;
 			motor[Q3] = 0;
