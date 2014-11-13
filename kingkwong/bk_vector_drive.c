@@ -34,7 +34,7 @@ task main() {
     }
     
      //Measurement for rotating servos 
-    int value = 0;
+    int value = ServoValue[srvo_S3_C1_1];
     if (y1 > 28) {
       value += 1;
     }
