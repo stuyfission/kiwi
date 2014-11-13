@@ -50,25 +50,25 @@ task main() {
     }
     
     //Set rotation for Servos 
-    servo[srvo_S3_C1_1] = value;
-    servo[srvo_S3_C1_2] = value;
-    servo[srvo_S3_C1_3] = value;
-    servo[srvo_S3_C1_4] = value;
+    servo[frontRightS] = value;
+    servo[frontLeftS] = value;
+    servo[backRightS] = value;
+    servo[backLeftS] = value;
     
     //Move motors (or wheels)
     //Move all wheels forward at full speed
     if (y2 > 28) {
-      motor[mtr_S1_C1_1] = 100;
-      motor[mtr_S1_C2_1] = 100;
-      motor[mtr_S2_C1_1] = 100;
-      motor[mtr_S2_C2_1] = 100;
+      motor[frontLeft] = 100;
+      motor[frontRight] = 100;
+      motor[backLeft] = 100;
+      motor[backRight] = 100;
     }
     //Move all wheels backwards at full speed
     if (y2 < -28) {
-      motor[mtr_S1_C1_1] = -100;
-      motor[mtr_S1_C2_1] = -100;
-      motor[mtr_S2_C1_1] = -100;
-      motor[mtr_S2_C2_1] = -100;
+      motor[frontLeft] = -100;
+      motor[frontRight] = -100;
+      motor[backLeft] = -100;
+      motor[backRight] = -100;
     }
   }
 }
