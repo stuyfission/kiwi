@@ -44,13 +44,13 @@ else if(y1 > 50 && x1 < -50) {
 	motor[Q2] = -100;
 	motor[Q4] = 100;
 }
-else if(x2 > 50) {
+else if(x2 > 50 && y1 < 50 && y1 > 50) {
 	motor[Q1] = 40;
 	motor[Q3] = 40;
 	motor[Q4] = 40;
 	motor[Q2] = 40;
 }
-else if(x2 < -50) {
+else if(x2 < -50 && y1 < 50 && y1 > 50) {
 	motor[Q1] = -40;
 	motor[Q4] = -40;
 	motor[Q3] = -40;
