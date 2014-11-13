@@ -1,3 +1,10 @@
+// Copyright Stuy Fission 310
+/**
+ * Authored by Alvin Lin (alvin.lin@stuypulse.com)
+ * http://omgimanerd.github.io
+ * http://310fission.com
+ * Basic template for our vector drive.
+ */
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  none,     none)
 #pragma config(Hubs,  S2, HTMotor,  HTMotor,  none,     none)
 #pragma config(Hubs,  S3, HTServo,  none,     none,     none)
