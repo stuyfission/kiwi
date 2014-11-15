@@ -1,3 +1,9 @@
+// Copyright Stuy Fission 310
+/**
+ * Authored by Brian Kwong (briankwongg@gmail.com)
+ * http://310fission.com
+ * This file is a vector drive program for our vectorbot prototype.
+ */
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  none,     none)
 #pragma config(Hubs,  S2, HTMotor,  HTMotor,  none,     none)
 #pragma config(Hubs,  S3, HTServo,  none,     none,     none)
