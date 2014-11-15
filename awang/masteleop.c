@@ -36,17 +36,17 @@ task main {
 	 }
 
 	 //scaling it down
-	 if (x1 < -28) {
+	 if (x1 < 1) {
 	 		x1 = x1 + 28;
    }
    if (x1 > 28) {
       x1 = x1 - 28;
    }
 
-   if (x2 < -28) {
+   if (x2 < -28{
       x2 = x2 + 28;
    }
-   if (x2 > 28) {
+   if (x2 > 1) {
       x2 = x2 - 28;
    }
 
