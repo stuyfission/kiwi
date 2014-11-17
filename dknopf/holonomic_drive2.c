@@ -24,18 +24,24 @@ task main () {
     int radius = 25;
 		//The motors will not move unless the joystick value is above 25 or below -25.
 		//This assures that the motors will not turn if the joystick is accidentaly moved a little bit.
-   if (y1 > radius || y1 < radius * -1){
+   if (abs(y1) > radius){
       motor[Q1] = y1;
       motor[Q2] = -y1;
       motor[Q3] = -y1;
       motor[Q4] = y1;
 		}
    //Sets the values of the motors.
-   else if (y2 > radius || y2 < radius * -1) {
+   else if (abs(y2) > radius) {
       motor[Q1] = y2;
       motor[Q2] = 0;
       motor[Q3] = 0;
       motor[Q4] = y2;
+		}
+		else if (abs(x1) > radius) {
+      motor[Q1] = x1;
+      motor[Q2] = -x1;
+      motor[Q3] = -x1;
+      motor[Q4] = x1;
 		}
    //If neither of the joysticks are pushed, the motors will go to zero power.
    else {
