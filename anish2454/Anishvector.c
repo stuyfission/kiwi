@@ -37,10 +37,11 @@ task main() {
     	servo[frontLefts] = 0;
     	servo[backLefts] = 0;
     	servo[backRights] = 0;
-    	motor[frontRight] = y1;
+    	motor[frontRight] = -y1;
     	motor[frontLeft] = y1;
     	motor[backRight] = -y1;
-    	motor[backLeft] = -y1;
+    	motor[backLeft] = y1;
   }
+    else if(
   //CODE NOT FINISHED
 }
