@@ -61,6 +61,7 @@ void spinCounterClockwise() {
 }
 
 task main() {
+	outer:
 	while (true) {
 		getJoystickSettings(joystick);
 		x1 = joystick.joy1_x1;
@@ -68,8 +69,9 @@ task main() {
 		x2 = joystick.joy1_x2;
 
 		//energy conservation
-		while (abs(x1) <= nullRad && abs(y1) <= nullRad
-			&& abs(x2) <= nullRad) {wait1Msec(25);}
+		if (abs(x1) <= nullRad && abs(y1) <= nullRad
+			&& abs(x2) <= nullRad) {wait1Msec(25); goto outer;} //if both joysticks inactive, waits 25
+	//msecs and then goes back to beginning of while (true) loop
 
 		//x1, y1: movement
 		if (preventsConflict) { //prevents robot from attempting to move and rotate simultaneously
