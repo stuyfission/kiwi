@@ -82,9 +82,9 @@ task main() {
 		y1 = joystick.joy1_y1;
 		x2 = joystick.joy1_x2;
 
-		//energy conservation
+		//pseudo-energy conservation
 		if (abs(x1) <= nullRad && abs(y1) <= nullRad
-			&& abs(x2) <= nullRad) {wait1Msec(1); continue;} //if both joysticks inactive, waits 1
+			&& abs(x2) <= nullRad) {continue;} //if both joysticks inactive, waits 1
 	//msec and then goes back to beginning of while (true) loop
 
 		//x1, y1: movement
