@@ -15,37 +15,45 @@ task main() {
 		int y2 = joystick.joy1_y2;
 		int x1 = joystick.joy1_x1;
 		int x2 = joystick.joy1_x2;
-		//movement
+		}
+		
+
+		if abs(joy1 > 0)
+			//movement
 		if abs(y1 > 50){
-			motor[motor1] = y1
-			motor[motor2] = y1
-			motor[motor3] = -y1
-			motor[motor4] = -y1
+			motor[motor1] = y1;
+			motor[motor2] = y1;
+			motor[motor3] = -y1;
+			motor[motor4] = -y1;
 		}
 		if abs(y1 < 51){
-			motor[motor1] = 0
-			motor[motor2] = 0
-			motor[motor3] = 0
-			motor[motor4] = 0
+			motor[motor1] = 0;
+			motor[motor2] = 0;
+			motor[motor3] = 0;
+			motor[motor4] = 0;
 		}
 		if abs(x1 > 50){
-			motor[motor1] = x1
-			motor[motor2] = -x1
-			motor[motor3] = -x1
-			motor[motor4] = x1
+			motor[motor1] = x1;
+			motor[motor2] = -x1;
+			motor[motor3] = -x1;
+			motor[motor4] = x1;
 		}
 		if abs(x1 < 51){
-			motor[motor1] = 0
-			motor[motor2] = 0
-			motor[motor3] = 0
-			motor[motor4] = 0
+			motor[motor1] = 0;
+			motor[motor2] = 0;
+			motor[motor3] = 0;
+			motor[motor4] = 0;
 		}
-		//rotation
+		else if abs(joy2 > 0)
+			//rotation
 		if abs(x2 > 50){
-			motor[motor1] = x2
-			motor[motor2] = -x2
-			motor[motor3] = x2
-			motor[motor4] = -x2
+			motor[motor1] = x2;
+			motor[motor2] = -x2;
+			motor[motor3] = x2;
+			motor[motor4] = -x2;
 		}
-		//how do I make it so that the rotation will not affect the movement?
-		//how do I make the robot able to rotate and move at the same time?
+		else
+			stop everything;
+
+	}
+}
