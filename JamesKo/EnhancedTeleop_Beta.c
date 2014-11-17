@@ -56,8 +56,22 @@ void spinCounterClockwise() {
 	motor[Q4] = -scale(x2);
 }
 
+void spinAndMove(bool clock, int direction) {
+	if (clock) { //clockwise
+		switch (direction) {
+			//w (determines direction from input, moves accordingly)
+		}
+	}
+	else { //counterclockwise
+		switch (direction) {
+			//w (determines direction from input, moves accordingly)
+		}
+	}
+}
+
 task main()
 {
+	daLoupe:
 	while (true)
 	{
 		getJoystickSettings(joystick);
@@ -65,10 +79,68 @@ task main()
 		y1 = joystick.joy1_y1;
 		x2 = joystick.joy1_x2;
 
-
-
 		//energy conservation
-		while (abs(x1) <= nullRad && abs(y1) <= nullRad
-			&& abs(x2) <= nullRad) {wait1Msec(25);}
+		if (abs(x1) <= nullRad && abs(y1) <= nullRad
+			&& abs(x2) <= nullRad) {wait1Msec(25); goto daLoupe;} // if both joysticks inactive, waits 25 msec
+	//and goes to beginning of the while-true loop
+
+		bool leftJoyActive = false;
+		bool rightJoyActive = false;
+		bool clock;
+		int direction; /**this starts from 0, N and goes clockwise.
+		* 0 represents N
+		* 1 represents NW
+		* 2 represents E
+		* 3 represents SE
+		* 4 represents S
+		* 5 represents SW
+		* 6 represents W
+		* 7 represents NW
+		*/
+
+		if (abs(x1) > nullRad || abs(y1) > nullRad) {leftJoyActive = true;}
+		if (abs(x2) > nullRad) {rightJoyActive = true;}
+
+		//decides if should move, rotate, or both
+		if (leftJoyActive && !rightJoyActive)
+		{
+			if (x1 > nullRad) { //movement
+				goEast();
+				if (y1 > nullRad) {goNorth();}
+				if (y1 < -nullRad) {goSouth();}
+			}
+			if (x1 < -nullRad) {
+				goWest();
+				if (y1 > nullRad) {goNorth();}
+				if (y1 < -nullRad) {goSouth();}
+			}
+		}
+		if (!leftJoyActive && rightJoyActive) { //rotation
+			if (x2 > nullRad) {
+				spinClockwise();
+			}
+			if (x2 < -nullRad) {
+				spinCounterClockwise();
+			}
+		}
+		if (leftJoyActive && rightJoyActive)
+		{
+			//move and rotate
+			if (x2 < -nullRad)
+			{
+				clock = false; //goes counterclockwise
+				if (abs(x1) <= nullRad) {
+					if (y1 > nullRad) {
+						//w
+					}
+				}
+			}
+			if (x2 > nullRad)
+			{
+				clock = true; //goes clockwise
+				//w (measure direction of left joystick)
+			}
+			spinAndMove(clock, direction);
+		}
 	}
 }

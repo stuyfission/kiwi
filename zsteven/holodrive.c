@@ -18,12 +18,12 @@ task main (){
          y2 = joystick.joy1_y2;
         
         if(abs(y1) > 10){
-            motor[Q1]=y1;
-            motor[Q2]=-y1;
-            motor[Q3]=y1;
-            motor[Q4]=-y1;
+            motor[Q1]=-y1;
+            motor[Q2]=y1;
+            motor[Q3]=-y1;
+            motor[Q4]=y1;
         }
-        if(abs(x1) > 10){
+        else if(abs(x1) > 10){
             motor[Q1]=x2;
             motor[Q2]=x2;
             motor[Q3]=-x2;
