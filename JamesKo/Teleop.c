@@ -22,46 +22,60 @@ int scale(int scaleThis) {
 	return ((scaleThis - nullRad) * (100/(128 - nullRad)));
 }
 
-void goNorth() {
-	motor[Q1] = scale(y1);
-	motor[Q2] = -scale(y1);
-	motor[Q3] = scale(y1);
-	motor[Q4] = -scale(y1);
-}
-void goSouth() {
-	motor[Q1] = -scale(y1);
-	motor[Q2] = scale(y1);
-	motor[Q3] = -scale(y1);
-	motor[Q4] = scale(y1);
-}
-void goWest() {
-	motor[Q1] = scale(x1);
-	motor[Q2] = scale(x1);
-	motor[Q3] = -scale(x1);
-	motor[Q4] = -scale(x1);
-}
-void goEast() {
-	motor[Q1] = -scale(x1);
-	motor[Q2] = -scale(x1);
-	motor[Q3] = scale(x1);
-	motor[Q4] = scale(x1);
+void move(char direction) {
+	int a; int b;
+	switch (direction) {
+		case 'n':
+			a = 1;
+			b = 1;
+			break;
+		case 'w':
+			a = -1;
+			b = -1;
+			break;
+		case 'e':
+			a = -1;
+			b = 1;
+			break;
+		case 's':
+			a = 1;
+			b = -1;
+			break;
+	}
+	switch (a) {
+		case 1:
+			//vertical
+			motor[Q1] = b * scale(y1);
+			motor[Q2] = -b * scale(y1);
+			motor[Q3] = b * scale(y1);
+			motor[Q4] = -b * scale(y1);
+			break;
+		case -1:
+			//horizontal
+      motor[Q1] = -b * scale(x1);
+      motor[Q2] = -b * scale(x1);
+      motor[Q3] = b * scale(x1);
+      motor[Q4] = b * scale(x1);
+	}
 }
 
-void spinClockwise() {
-	motor[Q1] = scale(x2);
-	motor[Q2] = scale(x2);
-	motor[Q3] = scale(x2);
-	motor[Q4] = scale(x2);
-}
-void spinCounterClockwise() {
-	motor[Q1] = -scale(x2);
-	motor[Q2] = -scale(x2);
-	motor[Q3] = -scale(x2);
-	motor[Q4] = -scale(x2);
+void rotate (bool clock) {
+	int c;
+	switch (clock) {
+		case true:
+			//clockwise
+			c = 1;
+		case false:
+			//counterclockwise
+			c = -1;
+	}
+	motor[Q1] = c * scale(x2);
+	motor[Q2] = c * scale(x2);
+	motor[Q3] = c * scale(x2);
+	motor[Q4] = c * scale(x2);
 }
 
 task main() {
-	outer:
 	while (true) {
 		getJoystickSettings(joystick);
 		x1 = joystick.joy1_x1;
@@ -70,8 +84,8 @@ task main() {
 
 		//energy conservation
 		if (abs(x1) <= nullRad && abs(y1) <= nullRad
-			&& abs(x2) <= nullRad) {wait1Msec(25); goto outer;} //if both joysticks inactive, waits 25
-	//msecs and then goes back to beginning of while (true) loop
+			&& abs(x2) <= nullRad) {wait1Msec(1); continue;} //if both joysticks inactive, waits 1
+	//msec and then goes back to beginning of while (true) loop
 
 		//x1, y1: movement
 		if (preventsConflict) { //prevents robot from attempting to move and rotate simultaneously
@@ -89,14 +103,14 @@ task main() {
 		}
 
 		if (x1 > nullRad) {
-			goEast();
-			if (y1 > nullRad) {goNorth();}
-			if (y1 < -nullRad) {goSouth();}
+			move('e');
+			if (y1 > nullRad) {move('n');}
+			if (y1 < -nullRad) {move('s');}
 		}
 		if (x1 < -nullRad) {
-			goWest();
-			if (y1 > nullRad) {goNorth();}
-			if (y1 < -nullRad) {goSouth();}
+			move('w');
+			if (y1 > nullRad) {move('n');}
+			if (y1 < -nullRad) {move('s');}
 		}
 		}
 		//end movement
@@ -107,10 +121,10 @@ task main() {
 			preventsConflict = true; //sets the stage for left joystick to control
 		}
 		else if (x2 > nullRad) {
-			spinClockwise();
+			rotate(true);
 		}
 		else if (x2 < -nullRad) {
-			spinCounterClockwise();
+			rotate(false);
 		}
 		}
 		//end rotation
