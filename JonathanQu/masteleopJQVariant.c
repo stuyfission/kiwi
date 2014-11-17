@@ -63,9 +63,9 @@ task main {
    if (y2 > 28) {
       y2 = y2 - 28;
    }
-   
+
    if (y1 > 0 && abs(y2) > 0 && abs(x2) >0) {
-	fine_adjustment = y1;
+	fine_adjustment = 1 / (y1+1);
 	}
 	else {
 	fine_adjustment = 0;
@@ -73,23 +73,23 @@ task main {
 
 
    //direct movement, Alvin's code is too good
-	  motor[Q1] = ( y2 - x2 ) - fine_adjustment;
-	 motor[Q2] = ( -y2 - x2  ) - fine_adjustment;
-	 motor[Q3] = ( -y2 + x2  )- fine_adjustment ;
-	 motor[Q4] = (  y2 + x2  ) - fine_adjustment;
+	  motor[Q1] = ( y2 - x2 ) *fine_adjustment;
+	 motor[Q2] = ( -y2 - x2  ) * fine_adjustment;
+	 motor[Q3] = ( -y2 + x2  )* fine_adjustment ;
+	 motor[Q4] = (  y2 + x2  ) * fine_adjustment;
 
 	 //rotate
-	 if (x1>92 && x2==0 && y2==0) {
-	 motor[Q1] = (  100 )- fine_adjustment ;
-	 motor[Q2] = ( 100 ) - fine_adjustment;
-	 motor[Q3] = ( 100 )- fine_adjustment ;
-	 motor[Q4] = (  100)- fine_adjustment ;
+	 if (x1>50 && x2==0 && y2==0) {
+	 motor[Q1] = (  100 )* fine_adjustment ;
+	 motor[Q2] = ( 100 ) * fine_adjustment;
+	 motor[Q3] = ( 100 )* fine_adjustment ;
+	 motor[Q4] = (  100)* fine_adjustment ;
    }
 
-	 if (x1<-92 && x2==0 && y2==0) {
-	 motor[Q1] = (  -100 )- fine_adjustment ;
-	 motor[Q2] = ( -100 ) - fine_adjustment;
-	 motor[Q3] = ( -100 ) - fine_adjustment;
-	 motor[Q4] = (  -100  ) - fine_adjustment;
+	 if (x1<-50 && x2==0 && y2==0) {
+	 motor[Q1] = (  -100 )* fine_adjustment ;
+	 motor[Q2] = ( -100 ) * fine_adjustment;
+	 motor[Q3] = ( -100 ) * fine_adjustment;
+	 motor[Q4] = (  -100  ) * fine_adjustment;
    }
 	}
