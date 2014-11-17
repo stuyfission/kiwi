@@ -37,10 +37,10 @@ task main () {
       motor[Q4] = y2;
 		}
 		else if (abs(x1) > radius) {
-      motor[Q1] = -x1;
+      motor[Q1] = x1;
       motor[Q2] = x1;
       motor[Q3] = -x1;
-      motor[Q4] = x1;
+      motor[Q4] = -x1;
 		}
    //If neither of the joysticks are pushed, the motors will go to zero power.
    else {
