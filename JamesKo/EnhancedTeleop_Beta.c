@@ -14,10 +14,6 @@ int x1 = 0;
 int y1 = 0;
 int x2 = 0;
 
-bool horizontalInactive;
-bool verticalInactive;
-bool preventsConflict = true;
-
 int scale(int scaleThis) {
 	return ((scaleThis - nullRad) * (100/(128 - nullRad)));
 }
@@ -60,59 +56,19 @@ void spinCounterClockwise() {
 	motor[Q4] = -scale(x2);
 }
 
-task main() {
-	outer:
-	while (true) {
+task main()
+{
+	while (true)
+	{
 		getJoystickSettings(joystick);
 		x1 = joystick.joy1_x1;
 		y1 = joystick.joy1_y1;
 		x2 = joystick.joy1_x2;
 
+
+
 		//energy conservation
-		if (abs(x1) <= nullRad && abs(y1) <= nullRad
-			&& abs(x2) <= nullRad) {wait1Msec(25); goto outer;} //if both joysticks inactive, waits 25
-	//msecs and then goes back to beginning of while (true) loop
-
-		//x1, y1: movement
-		if (preventsConflict) { //prevents robot from attempting to move and rotate simultaneously
-		if (abs(x1) <= nullRad) {
-			x1 = 0;
-			horizontalInactive = true;
-		}
-		if (abs(y1) <= nullRad) {
-			y1 = 0;
-			verticalInactive = true;
-		}
-
-		if (horizontalInactive && verticalInactive) { //if left joystick inactive, sets the stage for right joystick
-			preventsConflict = false;
-		}
-
-		if (x1 > nullRad) {
-			goEast();
-			if (y1 > nullRad) {goNorth();}
-			if (y1 < -nullRad) {goSouth();}
-		}
-		if (x1 < -nullRad) {
-			goWest();
-			if (y1 > nullRad) {goNorth();}
-			if (y1 < -nullRad) {goSouth();}
-		}
-		}
-		//end movement
-
-		//x2, y2: rotation
-		if (!preventsConflict) { //makes sure robot isn't already moving
-		if (abs(x2) <= nullRad) { //checks if right joystick inactive
-			preventsConflict = true; //sets the stage for left joystick to control
-		}
-		else if (x2 > nullRad) {
-			spinClockwise();
-		}
-		else if (x2 < -nullRad) {
-			spinCounterClockwise();
-		}
-		}
-		//end rotation
+		while (abs(x1) <= nullRad && abs(y1) <= nullRad
+			&& abs(x2) <= nullRad) {wait1Msec(25);}
 	}
 }
