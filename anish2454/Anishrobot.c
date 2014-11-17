@@ -16,7 +16,7 @@ task main() {
 		int x2 = joystick.joy1_x2;
 	 	int y2 = joystick.joy1_y2;
 
-if (y1 > 50 || y1 < -50){
+if (y1 > 50 || y1 < -50 && x1 < 10 && x1 > -10){
 			motor[Q1] = y1;
 			motor[Q2] = y1 * -1;
 			motor[Q3] = y1 * -1;
