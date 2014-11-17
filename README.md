@@ -2,8 +2,8 @@ kiwi
 ========
 Dump repository for old, deprecated, testing, and miscellaneous code.
 Code must follow the same conventions as specified in the README of
-stuyfission.github.io.
-Convention:
+stuyfission.github.io. All programmers should work in a directory here
+named with your GitHub username.
 - All files must have a trailing newline.
 - Use 2 space tabs (no tab characters).
 - Align parameters, tags, function calls, etc.
