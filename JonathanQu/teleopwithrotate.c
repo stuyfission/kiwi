@@ -9,10 +9,10 @@
 #include "JoystickDriver.c"
 
 //totally not a ripoff
-//Brian Kwong, Allan Wang, Jonathan Quang, some parts of Alvin Lin's
+//Brian Kwong, Allan Wang, Jonathan Quang
 
-task main {
-	int x1, y1, x2, y2, fine_adjustment;
+task main() {
+	int x1, y1, x2, y2;
 	while (true){
 		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
@@ -50,46 +50,39 @@ task main {
       x2 = x2 - 28;
    }
 
-   if (y1 < -28) {
-		y1 = y1 + 28;
+   if (x1 < -28) {
+	 		x1 = x1 + 28;
    }
-   if (y1 > 28) {
-      y1 = y1 - 28;
-   }
-
-   if (y2 < -28) {
-      y2 = y2 + 28;
-   }
-   if (y2 > 28) {
-      y2 = y2 - 28;
+   if (x1 > 28) {
+      x1 = x1 - 28;
    }
 
-   if (y1 > 0 && abs(y2) > 0 && abs(x2) >0) {
-	fine_adjustment = 1 / (y1+1);
-	}
-	else {
-	fine_adjustment = 0;
-	}
+   if (x2 < -28) {
+      x2 = x2 + 28;
+   }
+   if (x2 > 28) {
+      x2 = x2 - 28;
+   }
 
-
-   //direct movement, Alvin's code is too good
-	  motor[Q1] = ( y2 - x2 ) *fine_adjustment;
-	 motor[Q2] = ( -y2 - x2  ) * fine_adjustment;
-	 motor[Q3] = ( -y2 + x2  )* fine_adjustment ;
-	 motor[Q4] = (  y2 + x2  ) * fine_adjustment;
+   //direct movement
+   motor[Q1] = (  y2 - x2  ) - x1;
+	 motor[Q2] = ( -y2 - x2  ) - x1;
+	 motor[Q3] = ( -y2 + x2  ) - x1;
+	 motor[Q4] = (  y2 + x2  ) - x1;
 
 	 //rotate
-	 if (x1>50 && x2==0 && y2==0) {
-	 motor[Q1] = (  100 )* fine_adjustment ;
-	 motor[Q2] = ( 100 ) * fine_adjustment;
-	 motor[Q3] = ( 100 )* fine_adjustment ;
-	 motor[Q4] = (  100)* fine_adjustment ;
+	 if (y1>92 && x2==0 && y2==0) {
+	 motor[Q1] = (  100 ) ;
+   motor[Q2] = ( -100 ) ;
+	 motor[Q3] = ( 100 ) ;
+	 motor[Q4] = (  -100  ) ;
    }
 
-	 if (x1<-50 && x2==0 && y2==0) {
-	 motor[Q1] = (  -100 )* fine_adjustment ;
-	 motor[Q2] = ( -100 ) * fine_adjustment;
-	 motor[Q3] = ( -100 ) * fine_adjustment;
-	 motor[Q4] = (  -100  ) * fine_adjustment;
+	 if (y1>-92 && x2==0 && y2==0) {
+	 motor[Q1] = (  -100 ) ;
+	 motor[Q2] = ( 100 ) ;
+	 motor[Q3] = ( -100 ) ;
+	 motor[Q4] = (  100  ) ;
    }
 	}
+}
