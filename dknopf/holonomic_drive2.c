@@ -32,13 +32,13 @@ task main () {
    //Sets the values of the motors.
    else if (abs(y2) > radius) {
       motor[Q1] = y2;
-      motor[Q2] = 0;
-      motor[Q3] = 0;
+      motor[Q2] = y2;
+      motor[Q3] = y2;
       motor[Q4] = y2;
 		}
 		else if (abs(x1) > radius) {
-      motor[Q1] = x1;
-      motor[Q2] = -x1;
+      motor[Q1] = -x1;
+      motor[Q2] = x1;
       motor[Q3] = -x1;
       motor[Q4] = x1;
 		}
