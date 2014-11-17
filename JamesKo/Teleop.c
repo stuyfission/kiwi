@@ -67,6 +67,10 @@ task main() {
 		y1 = joystick.joy1_y1;
 		x2 = joystick.joy1_x2;
 
+		//energy conservation
+		while (abs(x1) <= nullRad && abs(y1) <= nullRad
+			&& abs(x2) <= nullRad) {wait1Msec(25);}
+
 		//x1, y1: movement
 		if (preventsConflict) { //prevents robot from attempting to move and rotate simultaneously
 		if (abs(x1) <= nullRad) {
