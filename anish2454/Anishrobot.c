@@ -22,6 +22,11 @@ if (y1 > 50 || y1 < -50 && x1 < 10 && x1 > -10){
 			motor[Q3] = y1 * -1;
 			motor[Q4] = y1;
 }
+else if (x1 > 50 || x1 < -50 && y1 < 5 && y1 > -5) {
+	motor[Q1] = y1;
+	motor[Q4] = -y1;
+	motor[Q2] = y1;
+	motor[Q3] = -y1;
 else if(y1 > 50 && x1 > 50) {
 	motor[Q1] = 100;
 	motor[Q3] = -100;
