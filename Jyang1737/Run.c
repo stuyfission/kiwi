@@ -16,20 +16,14 @@ task main() {
 	  int x2 = joystick.joy1_x2;
 	  int y2 = joystick.joy1_y2;
 
-	  if (abs(x1) > 50) {
+	  if (abs(x1) > 15) {
         motor[Q1] = x1;
 	    motor[Q2] = x1;
 	    motor[Q3] = x1;
 	    motor[Q4] = x1;
 	  }
-	  else {
-	    motor[Q1] = x1;
-	    motor[Q2] = x1;
-	    motor[Q3] = x1;
-	    motor[Q4] = x1;
-	  }
-	 
-	  if (abs(x2) > 50) {
+
+	  if (abs(x2) > 15) {
 	    motor[Q1] = -x2;
 	    motor[Q2] = x2;
 	    motor[Q3] = -x2;
@@ -42,7 +36,7 @@ task main() {
 	    motor[Q3] = x2;
 	    motor[Q4] = x2;
       }	   
-      if (abs(y2) > 50) {
+      if (abs(y2) > 15) {
         motor[Q1] = y2;
         motor[Q2] = y2;
         motor[Q3] = -y2;
