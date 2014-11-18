@@ -38,11 +38,17 @@ task main {
 			y2 = 0;
 		}
 
-		// Sets the power of the motor accordingly.
-		motor[Q1] = ( y2 - x2) - x1;
-		motor[Q2] = (-y2 - x2) - x1;
-		motor[Q3] = (-y2 + x2) - x1;
-		motor[Q4] = ( y2 + x2) - x1;
+		// Compounds the powers of the motors according to the joysticks.
+    /*  forward/back     l/r        rotation
+     * Q1:  y2           -x2           -x1
+     * Q2: -y2           -x2           -x1
+     * Q3: -y2            x2           -x1
+     * Q4:  y2            x2           -x1
+     */
+		motor[Q1] = -x2 + y2 - x1;
+		motor[Q2] = -x2 - y2 - x1;
+		motor[Q3] =  x2 - y2 - x1;
+		motor[Q4] =  x2 + y2 - x1;
 
 		// Outputs the joystick values to the screen.
 		nxtDisplayString(2, "X2: %i", x2);

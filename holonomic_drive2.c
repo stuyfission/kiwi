@@ -12,6 +12,7 @@
  * Authored by Daniel Knopf (danielkn609@gmail.com)
  * http://310fission.com
  * This file is a teleop program for our holonomic drivetrain prototype.
+ * SIMPLE version
  */
 
 task main () {
@@ -25,16 +26,16 @@ task main () {
     // below -25.
     // This assures that the motors will not turn if the joystick is
     // accidentally moved a little bit.
-    if (y1 > radius || y1 < radius * -1){
-      motor[Q1] = y1;
-      motor[Q2] = -y1;
-      motor[Q3] = -y1;
-      motor[Q4] = y1;
-		} else if (y2 > radius || y2 < radius * -1) {
-      motor[Q1] = y2;
-      motor[Q2] = 0;
-      motor[Q3] = 0;
-      motor[Q4] = y2;
+    if (abs(x2) > radius || abs(y2) > radius) {
+      motor[Q1] = -x2 + y2;
+      motor[Q2] = -x2 - y2;
+      motor[Q3] =  x2 - y2;
+      motor[Q4] =  x2 + y2;
+		} else if (abs(x1) > radius) {
+      motor[Q1] = -x1;
+      motor[Q2] = -x1;
+      motor[Q3] = -x1;
+      motor[Q4] = -x1;
 		}
     // If neither of the joysticks are pushed, the motors will go to zero power.
     else {
