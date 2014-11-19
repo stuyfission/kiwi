@@ -52,6 +52,8 @@ task main() {
 	}
 
 	if (carmode = 0) {
+	//code derived from the fact that q1+,q2-,q3-,q4+ cancels out horizontal movement and only allows vertical, by changing the signs of each value,
+	//a single direction is yielded in a different direction, if the motors rotate at different values, non perpendicular directions are achieved
 	  motor[Q1] = ( joystickvalues[2][2] - joystickvalues[2][1] ) - fine_adjustment; 
 	 motor[Q2] = ( -joystickvalues[2][2] - joystickvalues[2][1]  ) - fine_adjustment;
 	 motor[Q3] = ( -joystickvalues[2][2] + joystickvalues[2][1]  )-fine_adjustment ;
@@ -85,7 +87,7 @@ task main() {
 	if (carmode = 1){
 	motor[Q4] = joystickvalues[1][2];
 	motor[Q3] = jostickvalues[1][2];
-	motor[Q2] = joystickvalues[1][1] * -1;
+	motor[Q2] = joystickvalues[1][1];
 	motor[Q1] = joystickvalues[1][1];
 
    
