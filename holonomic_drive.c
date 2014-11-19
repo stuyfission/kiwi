@@ -24,17 +24,17 @@ task main {
 		x2 = joystick.joy1_x2;
 	 	y2 = joystick.joy1_y2;
 
- 		int radius = 25;
+ 		int minRadius = 25;
 
  		// The motors will not move if the joystick has not been pushed a
  		// a sufficient distance.
-   	if (abs(x1) < radius) {
+   	if (abs(x1) < minRadius) {
 			x1 = 0;
 		}
-		if (abs(x2) < radius) {
+		if (abs(x2) < minRadius) {
 			x2 = 0;
 		}
-		if (abs(y2) < radius) {
+		if (abs(y2) < minRadius) {
 			y2 = 0;
 		}
 
