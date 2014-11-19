@@ -51,28 +51,28 @@ task main() {
 
 		//RIP energy conservation
 
-		linear:
-		if (preventsConflict) { //prevents robot from attempting to move and rotate simultaneously
+		//linear
+		do { //prevents robot from attempting to move and rotate simultaneously
 			if (abs(x1) <= nullRad) {x1 = 0;} //checks x1 inactive
 			if (abs(y1) <= nullRad) {y1 = 0;} //checks y1 inactive
-			if (horizontalInactive && verticalInactive) { //if left joystick inactive, sets the stage for right joystick
+			if (x1 == 0 && y1 == 0) { //if left joystick inactive, sets the stage for right joystick
 				preventsConflict = false;
-				break linear;
+				break;
 			}
-			if (x1 > nullRad) {move('e');}
-			if (x1 < -nullRad) {move('w');}
-			if (y1 > nullRad) {move('n');}
-			if (y1 < -nullRad) {move('s');}
-		} //end linear
+			if (x1 > 0) {move('e');}
+			if (x1 < 0) {move('w');}
+			if (y1 > 0) {move('n');}
+			if (y1 < 0) {move('s');}
+		} while (preventsConflict); //end linear
 
-		rotation:
-		if (!preventsConflict) { //makes sure robot isn't already moving
+		//rotation
+		do { //makes sure robot isn't already moving
 			if (abs(x2) <= nullRad) { //checks if right joystick inactive
 				preventsConflict = true; //sets the stage for left joystick to control
-				break rotation;
+				break;
 			}
 			else if (x2 > nullRad) {move('a');}
 			else if (x2 < -nullRad) {move('z');}
-		} //end rotation
+		} while (!preventsConflict); //end rotation
 	}
 }
