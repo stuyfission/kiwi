@@ -17,6 +17,7 @@
 task main {
 	int x1, x2, y2;
 	while (true) {
+    
 		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
 	 	x1 = joystick.joy1_x1;
@@ -29,6 +30,7 @@ task main {
             x2 = 0;
         if (abs(y2) < radius)
             y2 = 0;
+            
         /*
         Assuming counterclockwise (when looking at wheel) is negative, clockwise is positive
         Assuming motors are aligned as follows:
@@ -41,26 +43,20 @@ task main {
         <^ Q3\ | /Q4 >^
                |
                
-        x1 > 0:
+        x2 > 0:
             direction = >
-        x1 < 0:
+        x2 < 0:
             direction = <
-        y1 > 0:
+        y2 > 0:
             direction = ^
-        y1 < 0:
+        y2 < 0:
             direction = v
-        
         */
          
-        motor[Q1] = -x1 + y1 - x2;
-        motor[Q2] =  x1 + y1 + x2;
-        motor[Q3] = -x1 + y1 + x2;
-        motor[Q4] =  x1 + y1 - x2;
+        motor[Q1] = -x2 + y2 - x1;
+        motor[Q2] =  x2 + y2 + x1;
+        motor[Q3] = -x2 + y2 + x1;
+        motor[Q4] =  x2 + y2 - x1;
         
-        
-        
-        
-        
-        
-        
+        }    
 }
