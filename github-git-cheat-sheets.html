@@ -1,0 +1,146 @@
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>GIT CHEAT SHEET<br/>
+V&#160;1.1.1<br/>
+Git&#160;is&#160;the&#160;open&#160;source&#160;distributed&#160;version&#160;control&#160;system&#160;that&#160;facilitates&#160;GitHub&#160;activities&#160;on&#160;your&#160;laptop&#160;or&#160;<br/>desktop. This cheat sheet summarizes commonly used Git command line instructions for quick reference.<br/>
+<b>INSTALL GIT</b><br/>
+<b>MAKE CHANGES</b><br/>
+GitHub&#160;&#160;provides&#160;&#160;desktop&#160;&#160;clients&#160;&#160;that&#160;&#160;include&#160;&#160;a&#160;&#160;graphical&#160;&#160;user&#160;<br/>
+Review edits and craft&#160;a commit transaction<br/>
+interface&#160;for&#160;the&#160;most&#160;common&#160;repository&#160;actions&#160;and&#160;an&#160;automati-<br/>
+cally updating command line edition of Git for advanced &#160;scenarios.<br/>
+<b>$ git status</b><br/>
+<b>GitHub for Windows</b><br/>
+Lists all new or modified files to be committed<br/>
+https://windows.github.com<br/>
+<b>$ git diff</b><br/>
+<b>GitHub for Mac</b><br/>
+Shows file diﬀerences not yet staged<br/>
+https://mac.github.com<br/>
+<b>$ git add [file]</b><br/>
+Snapshots the file in preparation for versioning<br/>
+Git&#160;distributions&#160;for&#160;Linux&#160;and&#160;POSIX&#160;systems&#160;are&#160;available&#160;on&#160;the&#160;<br/>
+oﬃcial Git SCM web site.<br/>
+<b>$ git diff --staged</b><br/>
+<b>Git for All Platforms</b><br/>
+Shows file diﬀerences between staging and the last file version<br/>
+http://git-scm.com<br/>
+<b>$ git reset [file]</b><br/>
+Unstages the file, but preserve its contents<br/>
+<b>$ git commit -m &#34;[descriptive message]&#34;</b><br/>
+<b>CONFIGURE TOOLING</b><br/>
+Configure user information for all local repositories<br/>
+Records file snapshots permanently in version history<br/>
+<b>$ git config --global user.name&#160;&#34;[name]&#34;</b><br/>
+Sets the name you want attached to your commit transactions<br/>
+<b>GROUP CHANGES</b><br/>
+<b>$ git config --global user.email &#34;[email address]&#34;</b><br/>
+Name a series of commits and combine completed eﬀorts<br/>
+Sets the email you want attached to your commit transactions<br/>
+<b>$ git branch</b><br/>
+<b>$ git config --global color.ui auto</b><br/>
+Lists all local branches in the current repository<br/>
+Enables helpful colorization of command line output<br/>
+<b>$ git branch [branch-name]</b><br/>
+Creates a new branch<br/>
+<b>CREATE REPOSITORIES</b><br/>
+<b>$ git checkout [branch-name]</b><br/>
+Start a new repository or obtain one from an existing URL<br/>
+Switches to the specified branch and updates the working directory<br/>
+<b>$ git init [project-name]</b><br/>
+<b>$ git merge [branch]</b><br/>
+Creates a new local repository with the specified name<br/>
+Combines the specified branch’s history into the current branch<br/>
+<b>$ git clone [url]</b><br/>
+<b>$ git branch -d [branch-name]</b><br/>
+Downloads a project and its entire version history<br/>
+Deletes the specified branch<br/>
+<hr/>
+<a name=2></a>GIT CHEAT SHEET<br/>
+<b>REFACTOR FILENAMES</b><br/>
+<b>REVIEW HISTORY</b><br/>
+Relocate and remove versioned files<br/>
+Browse and inspect the evolution of project files<br/>
+<b>$ git rm [file]</b><br/>
+<b>$ git log</b><br/>
+Deletes the file from the working directory and stages the deletion<br/>
+Lists version history for the current branch<br/>
+<b>$ git rm --cached [file]</b><br/>
+<b>$ git log --follow [file]</b><br/>
+Removes the file from version control but preserves the file locally<br/>
+Lists version history for a file, including renames<br/>
+<b>$ git mv [file-original] [file-renamed]</b><br/>
+<b>$ git diff [first-branch]...[second-branch]</b><br/>
+Changes the file name and prepares it for commit<br/>
+Shows content diﬀerences between two branches<br/>
+<b>$ git show [commit]</b><br/>
+Outputs metadata and content changes of the specified commit<br/>
+<b>SUPPRESS TRACKING</b><br/>
+Exclude temporary files and paths<br/>
+<b>REDO COMMITS</b><br/>
+<b>*.log</b><br/>
+Erase mistakes and craft&#160;replacement history<br/>
+<b>build/<br/>temp-*</b><br/>
+<b>$ git reset [commit]</b><br/>
+A text file named&#160;.gitignore&#160; suppresses accidental versioning of&#160;<br/>
+files and paths matching the specified patterns<br/>
+Undoes all commits after&#160;[commit], preserving changes locally<br/>
+<b>$ git reset --hard [commit]</b><br/>
+<b>$ git ls-files --other --ignored --exclude-standard</b><br/>
+Discards all history and changes back to the specified commit<br/>
+Lists all ignored files in this project<br/>
+<b>SAVE FRAGMENTS</b><br/>
+<b>SYNCHRONIZE CHANGES</b><br/>
+Shelve and restore incomplete changes<br/>
+Register a repository bookmark and exchange version history<br/>
+<b>$ git stash</b><br/>
+<b>$ git fetch [bookmark]</b><br/>
+Temporarily stores all modified tracked files<br/>
+Downloads all history from the repository bookmark<br/>
+<b>$ git stash pop</b><br/>
+<b>$ git merge [bookmark]/[branch]</b><br/>
+Restores the most recently stashed files<br/>
+Combines bookmark’s branch into current local branch<br/>
+<b>$ git stash list</b><br/>
+<b>$ git push [alias] [branch]</b><br/>
+Lists all stashed changesets<br/>
+Uploads all local branch commits to GitHub<br/>
+<b>$ git stash drop</b><br/>
+<b>$ git pull</b><br/>
+Discards the most recently stashed changeset<br/>
+Downloads bookmark history and incorporates changes<br/>
+Learn&#160;more&#160;about&#160;using&#160;GitHub&#160;and&#160;Git.&#160;Email&#160;the&#160;Training&#160;Team&#160;or&#160;visit&#160;<br/>
+<b>training@github.com&#160;</b><br/>
+our web site for learning event schedules and private class availability.<br/>
+<b>training.github.com</b><br/>
+<hr/>
+</body>
+</html>
