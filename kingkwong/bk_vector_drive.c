@@ -30,7 +30,7 @@ task main() {
     y1 = joystick.joy1_y1; //For rotating servos
     x2 = joystick.joy1_x2;
     y2 = joystick.joy1_y2; //For moving wheels (or motors) forward (or backwards)
-    
+
     //Sets values to zero if not moved
     if (abs(y1) < 28) {
       y1 = 0;
@@ -38,8 +38,8 @@ task main() {
     if (abs(y2) < 28) {
       y2 = 0;
     }
-    
-     //Measurement for rotating servos 
+
+     //Measurement for rotating servos
     int value = ServoValue[srvo_S3_C1_1];
     if (y1 > 28) {
       value += 1;
@@ -47,20 +47,20 @@ task main() {
     if (y1 < -28) {
       value -= 1;
     }
-    
+
     if (value > 255) {
       value = 0;
     }
     if (value < 0) {
       value = 255;
     }
-    
-    //Set rotation for Servos 
+
+    //Set rotation for Servos
     servo[frontRightS] = value;
     servo[frontLeftS] = value;
     servo[backRightS] = value;
     servo[backLeftS] = value;
-    
+
     //Move motors (or wheels)
     //Move all wheels forward at full speed
     if (y2 > 28) {
