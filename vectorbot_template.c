@@ -40,21 +40,21 @@ task main() {
 			servo[frontRightS] = 0;
 			motor[frontRight] = 0;
 		}
-		if (joy1Btn(1)) {
+		if (joy1Btn(5)) {
 			servo[frontLeftS] = 255;
 			motor[frontLeft] = 100;
 		} else {
 			servo[frontLeftS] = 0;
 			motor[frontLeft] = 0;
 		}
-		if (joy1Btn(2)) {
+		if (joy1Btn(6)) {
 			servo[backRightS] = 255;
 			motor[backRight] = 100;
 		} else {
 			servo[backRightS] = 0;
 			motor[backRight] = 0;
 		}
-		if (joy1Btn(3)) {
+		if (joy1Btn(7)) {
 			servo[backLeftS] = 255;
 			motor[backLeft] = 100;
 		} else {
