@@ -79,11 +79,11 @@ task main() {
    hypotenus_power = hypotenus_power * -1
    }
    if ( x1 < 0 && y1 <0) {
-   final_servo = wheel_turning *trig_servo + 180 * trig_servo;
+   final_servo = wheel_turning *trig_servo + trig_servo;
    hypotenus_power = hypotenus_power * -1
    }
    if (x1 < 0 && y1 >0) {
-   final_servo = wheel_turning * trig_servo + 270 * trig_servo;
+   final_servo = wheel_turning * trig_servo + 90 * trig_servo;
    }
    
     Servo[frontLS]=final_servo;
