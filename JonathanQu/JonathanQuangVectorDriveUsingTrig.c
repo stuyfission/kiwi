@@ -13,16 +13,18 @@
 #pragma config(Servo,  srvo_S3_C1_3,    backLS,             tServoStandard)
 #pragma config(Servo,  srvo_S3_C1_4,    backRS,            tServoStandard)
 
+#include "JoystickDriver.c"
+
 task main() {
   int x1, y1, x2, y2;
   float wheel_turning, xy_ratios, hypotenus_power, trig_servo, final_servo;
   while(true) {
-  
+
     getJoystickSettings(joystick);
     x1 = joystick.joy1_x1;
-    y1 = joystick.joy1_y1; 
+    y1 = joystick.joy1_y1;
     x2 = joystick.joy1_x2;
-    y2 = joystick.joy1_y2; 
+    y2 = joystick.joy1_y2;
 
 	if (abs(x1)< 28) {
 	   x1=0;
@@ -65,36 +67,34 @@ task main() {
    if (y2 > 28) {
       y2 = y2 - 28;
    }
-   
+
    //Trig calculating
    xy_ratios = abs(x1) / (y1);
    wheel_turning = atan(xy_ratios) * 180/PI ;
-   hypotenus_power = sqrt( x1*x1 + y1*y1);
+   hypotenus_power = sqrt( x1 * x1 + y1 * y1);
    trig_servo = 255 / 360;
-   if (x1 > 0 && y1>0) {
+   if ( x1 > 0 && y1 > 0) {
    final_servo = wheel_turning * trig_servo;
    }
-   if ( x1 > 0 && y1 <0) {
-   final_servo = wheel_turing * trig_servo + 90*trig_servo;
-   hypotenus_power = hypotenus_power * -1
+   if ( x1 > 0 && y1 < 0) {
+   final_servo = wheel_turning * trig_servo + 90 * trig_servo;
+   hypotenus_power = hypotenus_power * -1;
    }
-   if ( x1 < 0 && y1 <0) {
-   final_servo = wheel_turning *trig_servo + trig_servo;
-   hypotenus_power = hypotenus_power * -1
+   if ( x1 < 0 && y1 < 0) {
+   final_servo = wheel_turning * trig_servo + trig_servo;
+   hypotenus_power = hypotenus_power * -1;
    }
-   if (x1 < 0 && y1 >0) {
+   if ( x1 < 0 && y1 > 0) {
    final_servo = wheel_turning * trig_servo + 90 * trig_servo;
    }
-   
-    Servo[frontLS]=final_servo;
-	Servo[frontRS]=final_servo;
-	Servo[backLS]=final_servo;
-	Servo[backRS]=final_servo;
-	Motor[frontL] = hypotenus_power;
-	Motor[frontR] = hypotenus_power;
-	Motor[backL] = hypotenus_power;
-	Motor[backR] = hypotenus_power;
+
+  servo[frontLS] = final_servo;
+	servo[frontRS] = final_servo;
+	servo[backLS] = final_servo;
+	servo[backRS] = final_servo;
+	motor[frontL] = hypotenus_power;
+	motor[frontR] = hypotenus_power;
+	motor[backL] = hypotenus_power;
+	motor[backR] = hypotenus_power;
 	}
-   
-   
-   
+}
