@@ -67,6 +67,10 @@ task main() {
    if (y2 > 28) {
       y2 = y2 - 28;
    }
+   
+   if (y1 == 0) {
+	   y1 = 1)
+	}
 
    //Trig calculating
    xy_ratios = abs(x1) / (y1);
