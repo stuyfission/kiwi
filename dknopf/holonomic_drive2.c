@@ -20,14 +20,15 @@ task main () {
     int x1 = joystick.joy1_x1;
     int y1 = joystick.joy1_y1;
     int y2 = joystick.joy1_y2;
+    int x2 = joystick.joy1_x2;
     int radius = 25;
 		//The motors will not move unless the joystick value is above 25 or below -25.
 		//This assures that the motors will not turn if the joystick is accidentaly moved a little bit.
    if (abs(y2) > radius || abs(x2) > radius){
-      motor[Q1] = y2;
-      motor[Q2] = -y2;
-      motor[Q3] = -y2;
-      motor[Q4] = y2;
+      motor[Q1] = (y2 - x2) - x1;
+      motor[Q2] = (-y2 - x2) -x1;
+      motor[Q3] = (-y2 + x2) - x1;
+      motor[Q4] = (y2 + x2) - x1;
 		}
    //Sets the values of the motors.
    else if (abs(x1) > radius) {
@@ -35,12 +36,6 @@ task main () {
       motor[Q2] = x1;
       motor[Q3] = x1;
       motor[Q4] = x1;
-		}
-		else if (abs(x2) > radius) {
-      motor[Q1] = x2;
-      motor[Q2] = x2;
-      motor[Q3] = -x2;
-      motor[Q4] = -x2;
 		}
    //If neither of the joysticks are pushed, the motors will go to zero power.
    else {
