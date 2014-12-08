@@ -9,27 +9,38 @@
 #include "JoystickDriver.c"
 
 task main() {
- while (true) {
- 	getJoystickSettings(joystick);
-	 int y1 = joystick.joy1_y1;
-	 int y2 = joystick.joy1_y2;
+  while (true) {
+    getJoystickSettings(joystick);
+	  int x1 = joystick.joy1_x1;
+	  int y1 = joystick.joy1_y1;
+	  int x2 = joystick.joy1_x2;
+	  int y2 = joystick.joy1_y2;
 
-	 if (y1 > 50) {
-		 motor[Q1] = 100;
-		 motor[Q2] = 100;
-	 }
-	 else {
-		 motor[Q1] = 0;
-		 motor[Q2] = 0;
-	 }
+	  if (abs(x1) > 15) {
+        motor[Q1] = x1;
+	    motor[Q2] = x1;
+	    motor[Q3] = x1;
+	    motor[Q4] = x1;
+	  }
 
-	 if (y1 < -50) {
-		 motor[Q3] = 100;
-		 motor[Q4] = 100;
-	 }
-	 else {
-		 motor[Q3] = 0;
-		 motor[Q4] = 0;
-	 }
- }
+	  if (abs(x2) > 15) {
+	    motor[Q1] = -x2;
+	    motor[Q2] = x2;
+	    motor[Q3] = -x2;
+	    motor[Q4] = x2;
+	   
+	  }
+	  else {
+	    motor[Q1] = x2;
+	    motor[Q2] = x2;
+	    motor[Q3] = x2;
+	    motor[Q4] = x2;
+      }	   
+      if (abs(y2) > 15) {
+        motor[Q1] = y2;
+        motor[Q2] = y2;
+        motor[Q3] = -y2;
+        motor[Q4] = -y2;
+      } 
+  }
 }
