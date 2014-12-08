@@ -15,32 +15,26 @@ task main {
 		int y2 = joystick.joy1_y2;
 		int x1 = joystick.joy1_x1;
 		int x2 = joystick.joy2_x2;
-		int pos = 50;
+		int radius = 50;
 		
-		if(y1 > pos){
-			motor[Q1] = 1
-			motor[Q2] = 1
+		if (abs(y1) < radius){
+			y1 = 0;
 		}
-		else if(x1 > pos & y1 > pos){
-			motor[Q1] += pos
-			motor[Q2] += pos
+		if abs(y2) < radius{
+			y2 = 0;
 		}
-		else if(y1 == 0){
-			motor[Q1] == 0
-			motor[Q2] == 0
-		}	
-		if (y1 > pos){
-			motor[Q3] = 1
-			motor[Q4] = 1
+		if abs(x1) < radius{
+			x1 = 0;
 		}
-		else if(x1 > pos & y1 > pos){
-			motor[Q3] += pos
-			motor[Q4] += pos
+		if abs(x2) < radius{
+			x2 = 0;
 		}
-		else if(y1 == 0){
-			motor[Q3] == 0
-			motor[Q4] == 0
-		}
+		
+		
+		motor[Q1] = ( y2 - x2) - x1;
+		motor[Q2] = (-y2 - x2) - x1;
+		motor[Q3] = (-y2 + x2) - x1;
+		motor[Q4] = ( y2 + x2) - x1; 
 		
 	}
 }
