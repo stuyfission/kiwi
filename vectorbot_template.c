@@ -33,33 +33,33 @@ task main() {
     x2 = joystick.joy1_x2;
     y2 = joystick.joy1_y2;
 
-		if (joy1Btn(0)) {
-			servo[frontRightS] = 255;
-			motor[frontRight] = 100;
-		} else {
-			servo[frontRightS] = 0;
-			motor[frontRight] = 0;
-		}
-		if (joy1Btn(1)) {
-			servo[frontLeftS] = 255;
-			motor[frontLeft] = 100;
-		} else {
-			servo[frontLeftS] = 0;
-			motor[frontLeft] = 0;
-		}
-		if (joy1Btn(2)) {
-			servo[backRightS] = 255;
-			motor[backRight] = 100;
-		} else {
-			servo[backRightS] = 0;
-			motor[backRight] = 0;
-		}
-		if (joy1Btn(3)) {
-			servo[backLeftS] = 255;
-			motor[backLeft] = 100;
-		} else {
-			servo[backLeftS] = 0;
-			motor[backLeft] = 0;
-		}
+    if (joy1Btn(0)) {
+      servo[frontRightS] = 255;
+      motor[frontRight] = 100;
+    } else {
+      servo[frontRightS] = 0;
+      motor[frontRight] = 0;
+    }
+    if (joy1Btn(5)) {
+      servo[frontLeftS] = 255;
+      motor[frontLeft] = 100;
+    } else {
+      servo[frontLeftS] = 0;
+      motor[frontLeft] = 0;
+    }
+    if (joy1Btn(6)) {
+      servo[backRightS] = 255;
+      motor[backRight] = 100;
+    } else {
+      servo[backRightS] = 0;
+      motor[backRight] = 0;
+    }
+    if (joy1Btn(7)) {
+      servo[backLeftS] = 255;
+      motor[backLeft] = 100;
+    } else {
+      servo[backLeftS] = 0;
+      motor[backLeft] = 0;
+    }
   }
 }
