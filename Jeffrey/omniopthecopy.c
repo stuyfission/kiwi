@@ -33,7 +33,7 @@ task main {
 			motor[Q3] = 1
 			motor[Q4] = 1
 		}
-		else if(x1 > pos & y1 > pos){
+		else if(x1 > pos && y1 > pos){
 			motor[Q3] += pos
 			motor[Q4] += pos
 		}
