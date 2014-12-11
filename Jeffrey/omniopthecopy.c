@@ -26,18 +26,17 @@ task main {
 		if abs(x1) < radius{
 			x1 = 0;
 		}
-<<<<<<< HEAD
 		else if(x1 > pos && y1 > pos){
-			motor[Q3] += pos
-			motor[Q4] += pos
+			motor[Q3] += pos;
+			motor[Q4] += pos;
 		}
 		else if(y1 == 0){
-			motor[Q3] == 0
-			motor[Q4] == 0
-=======
+			motor[Q3] == 0;
+			motor[Q4] == 0;
+			
 		if abs(x2) < radius{
 			x2 = 0;
->>>>>>> e5555362f050adfd3842d1cb8bd89ac896d79704
+
 		}
 		
 		
