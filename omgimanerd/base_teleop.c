@@ -24,38 +24,12 @@
  * This file is a basic teleop program for a tankdrive.
  */
 
-bool clampDown = false;
 bool controlDriveMode = false;
 bool acquirerActive = false;
-
-task trackToggles() {
-	while	(true) {
-	  if (joy1Btn(6)) {
-	 		clampDown = false;
-	 	}
-	  if (joy1Btn(8)) {
-			clampDown = true;
-		}
-
-		if (joy1Btn(9)) {
-			controlDriveMode = false;
-		}
-		if (joy1Btn(10)) {
-			controlDriveMode = true;
-		}
-
-		if (joy1Btn(3)) {
-			acquirerActive = false;
-		}
-		if (joy1Btn(2)) {
-			acquirerActive = true;
-		}
-	}
-}
+int lastAcquirerActive = 0;
 
 task main() {
 	int x1, y1, x2, y2;
-	StartTask(trackToggles);
 	while (true) {
 		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
@@ -71,21 +45,33 @@ task main() {
       y2 = 0;
     }
 
-	 	if (clampDown) {
-	 		servo[goalClamp] = 0;
-	 	} else {
+	 	if (joy1Btn(6)) {
 	 		servo[goalClamp] = 255;
 	 	}
+	 	if (joy1Btn(8)) {
+	 		servo[goalClamp] = 0;
+	 	}
 
-		if (acquirerActive) {
-			motor[acquirer] = -100;
-		} else {
-			motor[acquirer] = 0;
+		if (joy1Btn(2) && lastAcquirerActive == 0) {
+			acquirerActive = !acquirerActive;
+			if (acquirerActive) {
+				motor[acquirer] = -100;
+			} else {
+				motor[acquirer] = 0;
+			}
+		}
+		lastAcquirerActive = joy1Btn(2);
+
+		if (joy1Btn(9)) {
+			controlDriveMode = true;
+		}
+		if (joy1Btn(10)) {
+			controlDriveMode = false;
 		}
 
 	  if (controlDriveMode) {
-			motor[driveL] = 30 * -(y1 / abs(y1));
-			motor[driveR] = 30 * -(y2 / abs(y2));
+			motor[driveL] = 15 * -(y1 / abs(y1));
+			motor[driveR] = 15 * -(y2 / abs(y2));
 		} else {
 		 	motor[driveL] = -y1;
 		 	motor[driveR] = -y2;
