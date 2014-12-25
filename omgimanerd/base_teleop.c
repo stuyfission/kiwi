@@ -64,12 +64,12 @@ task main() {
 	 	x2 = joystick.joy1_x2;
 	 	y2 = joystick.joy1_y2;
 
-	 	if (abs(y1) < 25) {
-	 		y1 = 0;
-	 	}
-	 	if (abs(y2) < 25) {
-	 		y2 = 0;
-	 	}
+    if (abs(y1) < 25) {
+      y1 = 0;
+    }
+    if (abs(y2) < 25) {
+      y2 = 0;
+    }
 
 	 	if (clampDown) {
 	 		servo[goalClamp] = 0;
