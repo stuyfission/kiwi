@@ -22,15 +22,22 @@
  * http://omgimanerd.github.io
  * http://310fission.com
  * This file is a basic teleop program for a tankdrive.
+ * It also contains toggle code which will be recycled next year.
  */
 
-bool controlDriveMode = false;
-bool acquirerActive = false;
-int lastAcquirerActive = 0;
+// Control constants.
+const int controlModeSpeed = 20;
+const int joystickThreshold = 25;
 
 task main() {
 	int x1, y1, x2, y2;
-	while (true) {
+	bool controlDriveMode = false;
+	int lastControlDriveMode = 0;
+	bool acquirerActive = false;
+	int lastAcquirerActive = 0;
+	bool teleopRunning = true;
+
+	while (teleopRunning) {
 		// Update the values of the variables storing the joystick positions.
 		getJoystickSettings(joystick);
 		x1 = joystick.joy1_x1;
@@ -38,13 +45,17 @@ task main() {
 	 	x2 = joystick.joy1_x2;
 	 	y2 = joystick.joy1_y2;
 
-    if (abs(y1) < 25) {
+	 	// If the joysticks are less than 25 in position, then they
+	 	// are set to zero as a threshold of movement.
+    if (abs(y1) < joystickThreshold) {
       y1 = 0;
     }
-    if (abs(y2) < 25) {
+    if (abs(y2) < joystickThreshold) {
       y2 = 0;
     }
 
+    // Joystick buttons 6 and 8 rotate the servo that clamps the
+    // rolling goals on and off.
 	 	if (joy1Btn(6)) {
 	 		servo[goalClamp] = 255;
 	 	}
@@ -52,6 +63,7 @@ task main() {
 	 		servo[goalClamp] = 0;
 	 	}
 
+	 	// Joystick button 2 toggles the acquirer on and off.
 		if (joy1Btn(2) && lastAcquirerActive == 0) {
 			acquirerActive = !acquirerActive;
 			if (acquirerActive) {
@@ -62,21 +74,24 @@ task main() {
 		}
 		lastAcquirerActive = joy1Btn(2);
 
-		if (joy1Btn(9)) {
-			controlDriveMode = true;
+		// Joystick button 1 toggles the drive mode on and off.
+		if (joy1Btn(1) && lastControlDriveMode == 0) {
+			controlDriveMode = !controlDriveMode;
 		}
-		if (joy1Btn(10)) {
-			controlDriveMode = false;
-		}
+		lastControlDriveMode = joy1Btn(1);
 
 	  if (controlDriveMode) {
-			motor[driveL] = 15 * -(y1 / abs(y1));
-			motor[driveR] = 15 * -(y2 / abs(y2));
+			motor[driveL] = controlModeSpeed * -(y1 / abs(y1));
+			motor[driveR] = controlModeSpeed * -(y2 / abs(y2));
 		} else {
 		 	motor[driveL] = -y1;
 		 	motor[driveR] = -y2;
 		}
 
+		// Shuts off the teleop program.
+		teleopRunning = !(joy1Btn(9) && joy1Btn(10));
+
+		// Outputs the joystick states to the screen.
 	 	eraseDisplay();
 		nxtDisplayString(2, "X2: %i", x2);
 		nxtDisplayString(3, "Y2: %i", y2);
