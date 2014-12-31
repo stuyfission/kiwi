@@ -6,9 +6,9 @@
 #pragma config(Motor,  mtr_S1_C2_2,     liftR,         tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_1,     acquirer,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     blank,         tmotorTetrix, openLoop)
-#pragma config(Servo,  srvo_S1_C4_1,    goalClamp,            tServoNone)
-#pragma config(Servo,  srvo_S1_C4_2,    servo2,               tServoNone)
-#pragma config(Servo,  srvo_S1_C4_3,    servo3,               tServoNone)
+#pragma config(Servo,  srvo_S1_C4_1,    goalClamp,            tServoStandard)
+#pragma config(Servo,  srvo_S1_C4_2,    autonExtend,          tServoNone)
+#pragma config(Servo,  srvo_S1_C4_3,    autonFlip,            tServoNone)
 #pragma config(Servo,  srvo_S1_C4_4,    servo4,               tServoNone)
 #pragma config(Servo,  srvo_S1_C4_5,    servo5,               tServoNone)
 #pragma config(Servo,  srvo_S1_C4_6,    servo6,               tServoNone)
@@ -54,6 +54,19 @@ task main() {
       y2 = 0;
     }
 
+
+    // Joystick buttons 5 and 7 raise and drop the mechanism.
+    if (joy1Btn(5)) {
+    	motor[liftL] = 100;
+    	motor[liftR] = 100;
+    } else if (joy1Btn(7)) {
+    	motor[liftL] = -100;
+    	motor[liftR] = -100;
+    } else {
+  		motor[liftL] = 0;
+  		motor[liftR] = 0;
+  	}
+
     // Joystick buttons 6 and 8 rotate the servo that clamps the
     // rolling goals on and off.
 	 	if (joy1Btn(6)) {
@@ -67,7 +80,7 @@ task main() {
 		if (joy1Btn(2) && lastAcquirerActive == 0) {
 			acquirerActive = !acquirerActive;
 			if (acquirerActive) {
-				motor[acquirer] = -100;
+				motor[acquirer] = -50;
 			} else {
 				motor[acquirer] = 0;
 			}
