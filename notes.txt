@@ -1,0 +1,3 @@
+assuming we can drive off the ramp and we do 1 ball in the rolling goal and we move the goal into the parking zone we get 70 points. assuming for endgame we get all the rolling goals and the robot onto the ramp we get 120~ points. assuming we can score center goal for endgame then thats an additional 100~ points.
+if we do the kickstand instead, then autonomous is worth ~100-ish?
+[D[D[D[D[D[D
