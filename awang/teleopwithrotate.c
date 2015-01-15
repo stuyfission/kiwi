@@ -10,6 +10,7 @@
 
 //totally not a ripoff
 //Brian Kwong, Allan Wang, Jonathan Quang
+//Need to refresh myself on this
 
 task main() {
 	int x1, y1, x2, y2;
@@ -31,37 +32,37 @@ task main() {
 	 if (abs(x2)< 28) {
 	   x2=0;
 	 }
-	 if (abs(y1)< 28) {
+	 if (abs(y2)< 28) {
 	   y2=0;
 	 }
 
 	 //scaling it down
 	 if (x1 < -28) {
 	 	x1 = x1 + 28;
-   	}
-   	if (x1 > 28) {
+   	 }
+   	 if (x1 > 28) {
       		x1 = x1 - 28;
-   	}
+   	 }
 
-   	if (x2 < -28) {
+   	 if (x2 < -28) {
       		x2 = x2 + 28;
-   	}
-   	if (x2 > 28) {
+   	 }
+   	 if (x2 > 28) {
       		x2 = x2 - 28;
-   	}
+     }
 
-   	if (x1 < -28) {
-	 	x1 = x1 + 28;
+   	 if (y1 < -28) {
+	 	y1 = y1 + 28;
 	 }
-   	if (x1 > 28) {
-      	x1 = x1 - 28;
-   	}
+   	 if (y1 > 28) {
+      	y1 = y1 - 28;
+   	 }
 
-   	if (x2 < -28) {
-      		x2 = x2 + 28;
-   	}
-   	if (x2 > 28) {
-      		x2 = x2 - 28;
+   	 if (y2 < -28) {
+      		y2 = y2 + 28;
+   	 }
+   	 if (y2 > 28) {
+      		y2 = y2 - 28;
    	}
 
    	//direct movement
